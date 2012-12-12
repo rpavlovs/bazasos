@@ -19,7 +19,7 @@ worker_processes 5 # SET ME!
 
 # listen on both a Unix domain socket and a TCP port,
 # we use a shorter backlog for quicker failover when busy
-listen "#{SHARED_PATH}/sockets/unicorn.socket", :backlog => 1024 # SET ME!
+listen "#{SHARED_PATH}/sockets/unicorn.sock", :backlog => 1024 # SET ME!
 
 # Preload our app for more speed
 preload_app true
