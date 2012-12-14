@@ -1,10 +1,12 @@
 Bazasos::Application.routes.draw do
 
-  resources :locations
-
-  resources :people
+  get "users/new"
 
   root to: 'people#index'
+  resources :locations
+  resources :people
+
+  match '/registration', to: 'users#new'
 
 
   # The priority is based upon order of creation:
