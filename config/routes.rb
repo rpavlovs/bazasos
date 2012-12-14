@@ -1,4 +1,12 @@
 Bazasos::Application.routes.draw do
+
+  resources :locations
+
+  resources :people
+
+  root to: 'people#index'
+
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

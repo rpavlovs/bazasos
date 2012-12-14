@@ -1,0 +1,75 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Description:</b>
+  <%= @location.description %>
+</p>
+
+<p>
+  <b>Phone num:</b>
+  <%= @location.phone_num %>
+</p>
+
+<p>
+  <b>City name:</b>
+  <%= @location.city_name %>
+</p>
+
+<p>
+  <b>Street name:</b>
+  <%= @location.street_name %>
+</p>
+
+<p>
+  <b>Street num:</b>
+  <%= @location.street_num %>
+</p>
+
+<p>
+  <b>Building num:</b>
+  <%= @location.building_num %>
+</p>
+
+<p>
+  <b>Entrance num:</b>
+  <%= @location.entrance_num %>
+</p>
+
+<p>
+  <b>Floor num:</b>
+  <%= @location.floor_num %>
+</p>
+
+<p>
+  <b>Apartment num:</b>
+  <%= @location.apartment_num %>
+</p>
+
+<p>
+  <b>Postal code:</b>
+  <%= @location.postal_code %>
+</p>
+
+<p>
+  <b>Address commment:</b>
+  <%= @location.address_commment %>
+</p>
+
+<p>
+  <b>Is registration:</b>
+  <%= @location.is_registration %>
+</p>
+
+<p>
+  <b>Is residence:</b>
+  <%= @location.is_residence %>
+</p>
+
+<p>
+  <b>Person:</b>
+  <%= @location.person_id %>
+</p>
+
+
+<%= link_to 'Edit', edit_location_path(@location) %> |
+<%= link_to 'Back', locations_path %>

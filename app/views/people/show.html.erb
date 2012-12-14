@@ -1,0 +1,82 @@
+<p id="notice"><%= notice %></p>
+
+<h1><%= @person.family_name %> <%= @person.given_name %> <%= @person.middle_name %></h1>
+
+<p>
+  <b>Birth date:</b>
+  <%= @person.birth_date %>
+</p>
+
+<p>
+  <b>Gender:</b>
+  <%= @person.gender %>
+</p>
+
+<p>
+  <b>Tax num:</b>
+  <%= @person.tax_num %>
+</p>
+
+<p>
+  <b>Cell num:</b>
+  <%= @person.cell_num %>
+</p>
+
+<p>
+  <b>Blood type:</b>
+  <%= @person.blood_type %><%= @person.rh_factor ? "+" : "-" %>
+</p>
+
+<p>
+  <b>Additional details:</b>
+  <%= @person.additional_details %>
+</p>
+
+<p>
+  <b>Clinic:</b>
+  <%= @person.clinic_id %>
+</p>
+
+<p>
+  <b>Frequent locations:</b>
+  <table>
+    <tr>
+      <th>Description</th>
+      <th>Phone num</th>
+      <th>Адрес</th>
+      <th>Address commment</th>
+      <th>Is registration</th>
+      <th>Is residence</th>
+      <th>Person</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+
+  <% @person.locations.each do |location| %>
+    <tr>
+      <td><%= location.description %></td>
+      <td><%= location.phone_num %></td>
+      <td>
+        <%= location.street_name %> <%= location.street_num %>, кв. <%= location.apartment_num %><br>
+        <%= "корп. #{location.building_num}," if location.building_num != nil %>
+        <%= "#{location.entrance_num} парадное," if location.entrance_num != '' %>
+        <%= "#{location.floor_num} эт." if location.floor_num != '' %><br>
+        <%= "г. #{location.city_name}" %>
+        <%= location.postal_code %>
+      </td>
+      <td><%= location.address_commment %></td>
+      <td><%= location.is_registration %></td>
+      <td><%= location.is_residence %></td>
+      <td><%= location.person_id %></td>
+      <td><%= link_to 'Show', location %></td>
+      <td><%= link_to 'Edit', edit_location_path(location) %></td>
+      <td><%= link_to 'Destroy', location, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    </tr>
+  <% end %>
+  </table>
+
+
+  <%= link_to 'Edit', edit_person_path(@person) %> |
+  <%= link_to 'Back', people_path %>
+</p>
