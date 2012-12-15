@@ -40,12 +40,12 @@ describe User do
 
   it { should be_valid }
   
-  describe "when name is not present" do
+  describe "when login is not present" do
     before { @user.login = " " }
     it { should_not be_valid }
   end
 
-  describe "when email is not present" do
+  describe "when login is not present" do
     before { @user.last_name = " " }
     it { should_not be_valid }
   end
@@ -60,13 +60,23 @@ describe User do
   	it { should_not be_valid }
   end
 
-  describe "when email address is already taken" do
+  describe "when login is already taken" do
     before do
-      user_with_same_email = @user.dup
-      user_with_same_email.login = @user.login.upcase
-      user_with_same_email.save
+      user_with_same_login = @user.dup
+      user_with_same_login.login = @user.login.upcase
+      user_with_same_login.save
     end
     it { should_not be_valid }
+  end
+
+  describe "email address with mixed case" do
+    let(:mixed_case_login) { "Foo@ExAMPle.CoM" }
+
+    it "should be saved as all lower-case" do
+      @user.login = mixed_case_login
+      @user.save
+      @user.reload.login.should == mixed_case_login.downcase
+    end
   end
 
   describe "when password is not present" do

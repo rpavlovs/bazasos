@@ -16,7 +16,7 @@ class User < ActiveRecord::Base
   attr_accessible :first_name, :last_name, :login, :middle_name, :password, :password_confirmation
   has_secure_password
 
-  before_save { |user| user.login = login.downcase }
+  before_save { self.login.downcase! }
 
   validates :login, presence:		true,
   									length:			{ maximum: 50, minimum: 5 },

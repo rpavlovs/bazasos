@@ -1,10 +1,9 @@
 Bazasos::Application.routes.draw do
 
-  get "users/new"
-
   root to: 'people#index'
   resources :locations
   resources :people
+  resources :users
 
   match '/registration', to: 'users#new'
 
