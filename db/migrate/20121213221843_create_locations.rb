@@ -1,20 +1,24 @@
 class CreateLocations < ActiveRecord::Migration
   def change
     create_table :locations do |t|
-      t.text :description
+      t.belongs_to :person
+
+      t.string :description
       t.integer :phone_num
-      t.string :city_name
-      t.string :street_name
-      t.string :street_num
-      t.integer :building_num
+
+      t.integer :postal_code
+      t.string :city
+      t.string :street
+      t.integer :building
+      t.integer :appartment
+
       t.integer :entrance_num
       t.integer :floor_num
-      t.integer :apartment_num
-      t.integer :postal_code
-      t.text :address_commment
+
+      t.text :comment
+
       t.boolean :is_registration
       t.boolean :is_residence
-      t.integer :person_id
 
       t.timestamps
     end
