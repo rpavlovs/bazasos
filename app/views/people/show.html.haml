@@ -1,0 +1,30 @@
+%p#notice= notice
+
+
+%h1= @person.full_name
+%dl
+  %dt Дата Рождения:
+  %dd= @person.birth_date
+
+  %dt Пол
+  %dd= @person.gender_text
+
+  %dt Идентификационний номер
+  %dd= @person.tax_num
+
+  %dt Номаер телефона
+  %dd= @person.cell_num
+
+  %dt Группа крови
+  %dd
+    = @person.blood_type
+    = @person.rh_factor ? '+' : '-'
+
+  %dt Дополнительная информация
+  %dd= @person.additional_details
+
+  %dt Больница
+  %dd= @person.clinic_id
+
+- @person.locations.each do |location|
+  = render partial: 'shared/location', locals: {location: location}

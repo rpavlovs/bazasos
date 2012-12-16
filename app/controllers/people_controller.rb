@@ -8,7 +8,6 @@ class PeopleController < ApplicationController
       @people = @people.where("middle_name ilike '%#{@search.middle_name}%'") if @search.middle_name.present?
       @people = @people.where(cell_num: @search.phone_number) if @search.phone_number.present?
     end
-
   end
 
   def show
