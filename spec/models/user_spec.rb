@@ -1,18 +1,4 @@
 # encoding: utf-8
-# == Schema Information
-#
-# Table name: users
-#
-#  id              :integer          not null, primary key
-#  login           :string(255)
-#  last_name       :string(255)
-#  first_name      :string(255)
-#  middle_name     :string(255)
-#  created_at      :datetime         not null
-#  updated_at      :datetime         not null
-#  password_digest :string(255)
-#
-
 require 'spec_helper'
 
 describe User do
@@ -39,7 +25,7 @@ describe User do
   it { should respond_to(:authenticate) }
 
   it { should be_valid }
-  
+
   describe "when login is not present" do
     before { @user.login = " " }
     it { should_not be_valid }
@@ -114,5 +100,4 @@ describe User do
 	  before { @user.password = @user.password_confirmation = "a" * 5 }
 	  it { should be_invalid }
 	end
-
 end
