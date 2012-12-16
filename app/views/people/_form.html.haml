@@ -1,0 +1,65 @@
+= form_for @person do |f|
+  - if @person.errors.any?
+    #error_explanation
+      %h2 #{pluralize(@person.errors.count, 'error')} prohibited this person from being saved:
+      %ul
+        -@person.error.full_messages.each do |msg|
+          %li= msg
+
+  .field
+    = f.label :family_name
+    %br
+    = f.text_field :family_name
+
+  .field
+    = f.label :given_name
+    %br
+    = f.text_field :given_name
+
+  .field
+    = f.label :middle_name
+    %br
+    = f.text_field :middle_name
+
+  .field
+    = f.label :birth_date
+    %br
+    = f.date_select :birth_date
+
+  .field
+    = f.label :gender
+    %br
+    = f.check_box :gender
+
+  .field
+    = f.label :tax_num
+    %br
+    = f.number_field :tax_num
+
+  .field
+    = f.label :cell_num
+    %br
+    = f.number_field :cell_num
+
+  .field
+    = f.label :blood_type
+    %br
+    = f.number_field :blood_type
+
+  .field
+    = f.label :rh_factor
+    %br
+    = f.check_box :rh_factor
+
+  .field
+    = f.label :additional_details
+    %br
+    = f.text_area :additional_details
+
+  .field
+    = f.label :clinic_id
+    %br
+    = f.number_field :clinic_id
+
+  .actions
+    = f.submit
