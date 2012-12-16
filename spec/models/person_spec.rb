@@ -1,9 +1,8 @@
 require 'spec_helper'
 
 describe Person do
-  subject do
-    Person.new
-  end
+  subject { FactoryGirl.create(:person) }
+
   it 'should have registration location' do
     registration_location = Location.create(person: subject, is_registration: true)
     subject.registration_location.should == registration_location
