@@ -11,25 +11,42 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121214162152) do
+ActiveRecord::Schema.define(:version => 20121216185314) do
+
+  create_table "allergies", :force => true do |t|
+    t.integer  "person_id"
+    t.string   "allergen"
+    t.string   "type"
+    t.string   "reaction"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
   create_table "locations", :force => true do |t|
-    t.text     "description"
+    t.integer  "person_id"
+    t.string   "description"
     t.integer  "phone_num"
-    t.string   "city_name"
-    t.string   "street_name"
-    t.string   "street_num"
-    t.integer  "building_num"
+    t.integer  "postal_code"
+    t.string   "city"
+    t.string   "street"
+    t.integer  "building"
+    t.integer  "appartment"
     t.integer  "entrance_num"
     t.integer  "floor_num"
-    t.integer  "apartment_num"
-    t.integer  "postal_code"
-    t.text     "address_commment"
+    t.text     "comment"
     t.boolean  "is_registration"
     t.boolean  "is_residence"
+    t.datetime "created_at",      :null => false
+    t.datetime "updated_at",      :null => false
+  end
+
+  create_table "medications", :force => true do |t|
     t.integer  "person_id"
-    t.datetime "created_at",       :null => false
-    t.datetime "updated_at",       :null => false
+    t.string   "name"
+    t.string   "type"
+    t.string   "dose"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   create_table "people", :force => true do |t|
