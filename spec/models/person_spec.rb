@@ -4,12 +4,12 @@ describe Person do
   subject { FactoryGirl.create(:person) }
 
   it 'should have registration location' do
-    registration_location = Location.create(person: subject, is_registration: true)
+    registration_location = FactoryGirl.create(:location, :registration, person: subject)
     subject.registration_location.should == registration_location
   end
 
   it 'should have residence location' do
-    residence_location = Location.create(person: subject, is_residence: true)
+    residence_location = FactoryGirl.create(:location, :residence, person: subject)
     subject.residence_location.should == residence_location
   end
 end

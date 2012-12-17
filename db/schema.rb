@@ -24,20 +24,17 @@ ActiveRecord::Schema.define(:version => 20121216185314) do
 
   create_table "locations", :force => true do |t|
     t.integer  "person_id"
-    t.string   "description"
-    t.integer  "phone_num"
-    t.integer  "postal_code"
+    t.string   "postal_code",     :limit => 5
+    t.string   "region"
     t.string   "city"
-    t.string   "street"
-    t.integer  "building"
-    t.integer  "appartment"
-    t.integer  "entrance_num"
-    t.integer  "floor_num"
+    t.text     "address"
+    t.string   "description"
+    t.string   "phone_number",    :limit => 20
     t.text     "comment"
     t.boolean  "is_registration"
     t.boolean  "is_residence"
-    t.datetime "created_at",      :null => false
-    t.datetime "updated_at",      :null => false
+    t.datetime "created_at",                    :null => false
+    t.datetime "updated_at",                    :null => false
   end
 
   create_table "medications", :force => true do |t|
@@ -70,9 +67,9 @@ ActiveRecord::Schema.define(:version => 20121216185314) do
     t.string   "last_name"
     t.string   "first_name"
     t.string   "middle_name"
+    t.string   "password_digest"
     t.datetime "created_at",      :null => false
     t.datetime "updated_at",      :null => false
-    t.string   "password_digest"
   end
 
   add_index "users", ["login"], :name => "index_users_on_login", :unique => true

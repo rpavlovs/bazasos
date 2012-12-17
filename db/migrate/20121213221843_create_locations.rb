@@ -3,18 +3,13 @@ class CreateLocations < ActiveRecord::Migration
     create_table :locations do |t|
       t.belongs_to :person
 
-      t.string :description
-      t.integer :phone_num
-
-      t.integer :postal_code
+      t.string :postal_code, limit: 5
+      t.string :region
       t.string :city
-      t.string :street
-      t.integer :building
-      t.integer :appartment
+      t.text :address
 
-      t.integer :entrance_num
-      t.integer :floor_num
-
+      t.string :description
+      t.string :phone_number, limit: 20
       t.text :comment
 
       t.boolean :is_registration
