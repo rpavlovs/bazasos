@@ -3,9 +3,9 @@ class Person < ActiveRecord::Base
   attr_accessible :additional_details, :birth_date, :blood_type, :cell_num,
     :clinic_id, :family_name, :gender, :given_name, :middle_name, :rh_factor, :tax_num
 
-  has_many :locations
-  has_many :allergies
-  has_many :medications
+  has_many :locations, dependent: :destroy
+  has_many :allergies, dependent: :destroy
+  has_many :medications, dependent: :destroy
 
   def registration_location
     locations.registration.first

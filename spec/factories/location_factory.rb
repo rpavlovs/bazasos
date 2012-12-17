@@ -1,7 +1,7 @@
 FactoryGirl.define do
   factory :location do
     person { FactoryGirl.create(:person) }
-    sequence(:postal_code) { |n| n.to_s.slice(0, 5) }
+    postal_code '01001'
     region 'Kyiv'
     city 'Kyiv'
     sequence(:address) { |n| "Khreshatyk str., #{n}" }

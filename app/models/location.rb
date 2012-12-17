@@ -6,6 +6,8 @@ class Location < ActiveRecord::Base
   validates_length_of :postal_code, maximum: 5
   validates_length_of :phone_number, maximum: 20
 
+  validates_format_of :phone_number, with: /[\d\+ -]+/
+  validates_format_of :postal_code, with: /\d{5}/
   belongs_to :person
 
   scope :registration, where(is_registration: true)
