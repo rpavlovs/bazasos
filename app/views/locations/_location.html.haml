@@ -1,0 +1,19 @@
+.row
+  .span3.offset1
+    %h4= location.description
+    - if location.is_registration
+      %br
+      .label.label-info Место прописки
+    - if location.is_residence
+      %br
+      .label.label-success Место проживания
+  .span8
+    %dl
+      %dt Адрес
+      %dd= [location.region, location.city, location.postal_code, location.address].compact.join(', ')
+      - if location.phone_number
+        %dt Телефон
+        %dd= location.phone_number
+      - if location.comment
+        %dt Комментарий
+        %dd= location.comment
