@@ -1,6 +1,14 @@
 %p#notice= notice
 
 %h1= @person.full_name
+
+- if @person.alerts.any?
+  .alert
+    %h4 Неполная информация о клиенте
+    %ul
+      - @person.alerts.each do |alert|
+        %li= alert
+
 %dl
   %dt Дата Рождения:
   %dd= @person.birth_date
@@ -27,8 +35,6 @@
 
   %h2 Локации
   = render @person.locations
-  = link_to '#new-location', class: 'btn', data: { toggle: 'modal' } do
+  = link_to new_person_location_path(@person), class: 'btn' do
     %i.icon-plus-sign
     Добавить локацию
-
-= render partial: 'locations/modal_form', locals: { person: @person }

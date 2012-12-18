@@ -1,4 +1,5 @@
 class Location < ActiveRecord::Base
+  default_scope order('is_registration desc, is_residence desc')
 
   attr_accessible :person, :person_id, :postal_code, :region, :city, :address,
     :description, :phone_number, :comment, :is_registration, :is_residence

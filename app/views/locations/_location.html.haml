@@ -8,6 +8,10 @@
       - if location.is_residence
         %br
         .label.label-success Место проживания
+      %br
+      = link_to 'Редактировать', edit_person_location_path(location.person, location), class: 'btn btn-mini'
+      = link_to 'Удалить', location, method: :delete, confirm: 'Это необратимая операция. Вы уверены?',
+        class: 'btn btn-danger btn-mini'
     .span7
       %dl
         %dt Адрес

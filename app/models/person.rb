@@ -24,4 +24,15 @@ class Person < ActiveRecord::Base
   def gender_text
     gender ? 'Мужской' : 'Женский'
   end
+
+  def alerts
+    result = []
+    if registration_location.nil?
+      result << 'Не указан адрес прописки'
+    end
+    if residence_location.nil?
+      result << 'Не указан адрес проживания'
+    end
+    result
+  end
 end
