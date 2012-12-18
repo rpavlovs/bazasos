@@ -1,25 +1,30 @@
 .row
-  %h1{style: 'display: inline-block'} People
-  = link_to 'New Person', new_person_path, class: 'btn btn-primary'
+  %h1 Клиенты
 
 .row
-  .span3
-    = form_for :search do |f|
-      .field
-        %label Фамилия
-        = f.text_field :family_name
-      .field
-      %label Имя
-      = f.text_field :given_name
-      .field
-        %label Отчество
-        = f.text_field :middle_name
-      .field
-        %label Телефон
-        = f.text_field :phone_number
-      .actions
-        = f.submit 'Поиск', class: 'btn'
-  .span9
+  .span4
+    .well
+      = link_to new_person_path, class: 'btn btn-primary btn-block' do
+        %i.icon-plus-sign.icon-white
+        Добавить Клиента
+
+    .well
+      = form_for :search do |f|
+        .field
+          %label Фамилия
+          = f.text_field :family_name
+        .field
+          %label Имя
+          = f.text_field :given_name
+        .field
+          %label Отчество
+          = f.text_field :middle_name
+        .field
+          %label Телефон
+          = f.text_field :phone_number
+        .actions
+          = f.submit 'Поиск', class: 'btn'
+  .span8
     %table.table.table-condensed
       %thead
         %th Фамилия
@@ -34,4 +39,4 @@
             %td= person.given_name
             %td= person.middle_name
             %td= person.cell_num
-            %td= link_to 'Show', person, class: 'btn btn-mini'
+            %td= link_to 'Подробнее', person, class: 'btn btn-block'

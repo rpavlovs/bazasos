@@ -7,6 +7,8 @@ class Person < ActiveRecord::Base
   has_many :allergies, dependent: :destroy
   has_many :medications, dependent: :destroy
 
+  validates_format_of :cell_num, with: /\d{10}/
+
   def registration_location
     locations.registration.first
   end

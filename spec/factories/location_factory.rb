@@ -6,9 +6,9 @@ FactoryGirl.define do
     city 'Kyiv'
     sequence(:address) { |n| "Khreshatyk str., #{n}" }
 
-    description "Resturant"
-    sequence(:phone_number) { |n| n.to_s }
-    comment "Delicious meat & fish"
+    description 'Resturant'
+    phone_number '1234567890'
+    comment 'Delicious meat & fish'
 
     is_registration false
     is_residence false

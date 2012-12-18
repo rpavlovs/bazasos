@@ -1,6 +1,5 @@
 %p#notice= notice
 
-
 %h1= @person.full_name
 %dl
   %dt Дата Рождения:
@@ -26,5 +25,10 @@
   %dt Больница
   %dd= @person.clinic_id
 
-%h3 Локации
-= render @person.locations
+  %h2 Локации
+  = render @person.locations
+  = link_to '#new-location', class: 'btn', data: { toggle: 'modal' } do
+    %i.icon-plus-sign
+    Добавить локацию
+
+= render partial: 'locations/modal_form', locals: { person: @person }
