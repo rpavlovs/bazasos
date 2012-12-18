@@ -38,5 +38,5 @@
             %td= person.family_name
             %td= person.given_name
             %td= person.middle_name
-            %td= person.cell_num
+            %td= person.phone_numbers.join(', ')
             %td= link_to 'Подробнее', person, class: 'btn btn-block'

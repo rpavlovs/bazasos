@@ -25,6 +25,10 @@ class Person < ActiveRecord::Base
     gender ? 'Мужской' : 'Женский'
   end
 
+  def phone_numbers
+    ([cell_num] + locations.pluck(:phone_number)).compact
+  end
+
   def alerts
     result = []
     if registration_location.nil?
