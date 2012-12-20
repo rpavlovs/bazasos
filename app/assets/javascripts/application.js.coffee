@@ -11,15 +11,6 @@
 # GO AFTER THE REQUIRES BELOW.
 #
 #= require jquery
-#= require jquery.ui.datepicker
-#= require jquery.ui.datepicker-ru.js
 #= require jquery_ujs
-#= require_tree .
 #= require bootstrap
-
-$ ->
-  $("input.datepicker").each (i) ->
-    $(this).datepicker
-      altFormat: "yy-mm-dd"
-      dateFormat: "mm/dd/yy"
-      altField: $(this).next()
+#= require_tree .

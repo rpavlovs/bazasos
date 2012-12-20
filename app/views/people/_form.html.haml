@@ -2,7 +2,7 @@
   = f.input :family_name
   = f.input :given_name
   = f.input :middle_name
-  = f.input :birth_date, as: :datepicker
+  = f.input :birth_date, as: :datepicker, birth_date: true
   = f.input :gender
   = f.input :tax_num
   = f.input :cell_num
@@ -11,45 +11,3 @@
   = f.input :additional_details, input_html: {rows: 2}
   = f.input :clinic_id
   = f.button :submit
--#= form_for @person do |f|
-  - if @person.errors.any?
-    #error_explanation
-      %h2 #{pluralize(@person.errors.count, 'error')} prohibited this person from being saved:
-      %ul
-        -@person.error.full_messages.each do |msg|
-          %li= msg
-  .field
-    = f.label :family_name
-    = f.text_field :family_name
-  .field
-    = f.label :given_name
-    = f.text_field :given_name
-  .field
-    = f.label :middle_name
-    = f.text_field :middle_name
-  .field
-    = f.label :birth_date
-    = f.date_select :birth_date
-  .field
-    = f.label :gender
-    = f.check_box :gender
-  .field
-    = f.label :tax_num
-    = f.number_field :tax_num
-  .field
-    = f.label :cell_num
-    = f.number_field :cell_num
-  .field
-    = f.label :blood_type
-    = f.number_field :blood_type
-  .field
-    = f.label :rh_factor
-    = f.check_box :rh_factor
-  .field
-    = f.label :additional_details
-    = f.text_area :additional_details
-  .field
-    = f.label :clinic_id
-    = f.number_field :clinic_id
-  .actions
-    = f.submit
