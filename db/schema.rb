@@ -24,11 +24,16 @@ ActiveRecord::Schema.define(:version => 20121216185314) do
 
   create_table "locations", :force => true do |t|
     t.integer  "person_id"
+    t.string   "description"
     t.string   "postal_code",     :limit => 5
     t.string   "region"
     t.string   "city"
-    t.text     "address"
-    t.string   "description"
+    t.string   "street"
+    t.string   "street_number"
+    t.integer  "building_number"
+    t.integer  "floor"
+    t.integer  "entrance"
+    t.integer  "appartment"
     t.string   "phone_number",    :limit => 20
     t.text     "comment"
     t.boolean  "is_registration"

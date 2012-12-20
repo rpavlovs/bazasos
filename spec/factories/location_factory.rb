@@ -4,7 +4,12 @@ FactoryGirl.define do
     postal_code '01001'
     region 'Kyiv'
     city 'Kyiv'
-    sequence(:address) { |n| "Khreshatyk str., #{n}" }
+    street 'Khreshatyk'
+    sequence (:street_number) { |n| n.to_s }
+    building_number 1
+    floor 1
+    entrance 1
+    sequence(:appartment) { |n| n }
 
     description 'Resturant'
     phone_number '1234567890'
