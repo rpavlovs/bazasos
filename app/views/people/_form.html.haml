@@ -1,4 +1,17 @@
-= form_for @person do |f|
+= simple_form_for @person, html: {class: 'form-horizontal'} do |f|
+  = f.input :family_name
+  = f.input :given_name
+  = f.input :middle_name
+  = f.input :birth_date, as: :datepicker
+  = f.input :gender
+  = f.input :tax_num
+  = f.input :cell_num
+  = f.input :blood_type
+  = f.input :rh_factor
+  = f.input :additional_details, input_html: {rows: 2}
+  = f.input :clinic_id
+  = f.button :submit
+-#= form_for @person do |f|
   - if @person.errors.any?
     #error_explanation
       %h2 #{pluralize(@person.errors.count, 'error')} prohibited this person from being saved:

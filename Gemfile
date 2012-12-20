@@ -6,6 +6,7 @@ gem 'bcrypt-ruby', '3.0.1'
 
 gem 'pg'
 gem 'haml-rails'
+gem 'simple_form'
 
 group :development, :test do
   gem 'rspec-rails', '2.11.0'
@@ -39,6 +40,7 @@ group :assets do
 end
 
 gem 'jquery-rails'
+gem 'jquery-ui-rails'
 
 # To use Jbuilder templates for JSON
 # gem 'jbuilder'
