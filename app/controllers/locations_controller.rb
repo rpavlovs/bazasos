@@ -7,7 +7,7 @@ class LocationsController < ApplicationController
     if @location.save
       redirect_to @person
     else
-      render :new
+      render :edit
     end
   end
 

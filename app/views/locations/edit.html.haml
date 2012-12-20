@@ -2,48 +2,21 @@
   = @location.persisted? ? 'Редактирование' : 'Добавление'
   локации
 
-= form_for [@person, @location], html: {class: 'form-horizontal'} do |f|
-  .control-group
-    %label.control-label Описание
-    .controls
-      = f.text_field :description
-
+= simple_form_for [@person, @location], html: {class: 'form-horizontal'} do |f|
+  = f.input :description
   - if @location.is_residence or @person.residence_location.nil?
-    .control-group
-      %label.control-label Место Проживания
-      .controls
-        = f.check_box :is_residence
-
+    = f.input :is_residence
   - if @location.is_registration or @person.registration_location.nil?
-    .control-group
-      %label.control-label Место Прописки
-      .controls
-        = f.check_box :is_registration
-
-  .control-group
-    %label.control-label Область
-    .controls
-      = f.text_field :region
-  .control-group
-    %label.control-label Город
-    .controls
-      = f.text_field :city
-  .control-group
-    %label.control-label Почтовый индекс
-    .controls
-      = f.text_field :postal_code
-  .control-group
-    %label.control-label Адрес
-    .controls
-      = f.text_area :address, rows: 2
-  .control-group
-    %label.control-label Телефон
-    .controls
-      = f.text_field :phone_number, pattern: '\d{10}'
-  .control-group
-    %label.control-label Комментарии
-    .controls
-      = f.text_area :comment, rows: 2
-  .controls
-    = f.submit 'Сохранить', class: 'btn btn-primary'
-    = link_to 'Отмена', @person, class: 'btn'
+    = f.input :is_registration
+  = f.input :postal_code
+  = f.input :region
+  = f.input :city
+  = f.input :street
+  = f.input :street_number
+  = f.input :building_number
+  = f.input :floor
+  = f.input :entrance
+  = f.input :phone_number, hint: 'Формат: 0441234567'
+  = f.input :comment, input_html: {rows: 2}
+  = f.button :submit, class: 'btn-primary'
+  = link_to 'Cancel', @person, class: 'btn'
