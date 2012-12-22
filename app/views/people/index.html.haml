@@ -2,41 +2,29 @@
   %h1 Клиенты
 
 .row
-  .span4
+  .span3
     .well
       = link_to new_person_path, class: 'btn btn-primary btn-block' do
         %i.icon-plus-sign.icon-white
         Добавить Клиента
+    = simple_form_for :search, html: {class: 'form-vertical'} do |f|
+      = f.input :family_name
+      = f.input :given_name
+      = f.input :middle_name
+      = f.input :phone_number
+      = f.button :submit, 'Search'
 
-    .well
-      = form_for :search do |f|
-        .field
-          %label Фамилия
-          = f.text_field :family_name
-        .field
-          %label Имя
-          = f.text_field :given_name
-        .field
-          %label Отчество
-          = f.text_field :middle_name
-        .field
-          %label Телефон
-          = f.text_field :phone_number
-        .actions
-          = f.submit 'Поиск', class: 'btn'
-  .span8
-    %table.table.table-condensed
+  .span9
+    %table#people.table.table-condensed
       %thead
         %th Фамилия
         %th Имя
         %th Отчество
         %th Телефоны
-        %th
       %tbody
         - @people.each do |person|
-          %tr
+          = content_tag_for :tr, person, data: {url: person_path(person)} do
             %td= person.family_name
             %td= person.given_name
             %td= person.middle_name
             %td= person.phone_numbers.join(', ')
-            %td= link_to 'Подробнее', person, class: 'btn btn-block'
