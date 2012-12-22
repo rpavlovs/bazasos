@@ -1,6 +1,23 @@
 %p#notice= notice
 
-%h1= @person.full_name
+.page-header
+  %h1
+    = @person.full_name
+    %small
+      = @person.age
+      - if @person.age % 10 == 1
+        год
+      - elsif (2..4).includes? @person.age % 10
+        года
+      - else
+        лет
+
+  = link_to people_path, class: 'btn' do
+    %i.icon-list
+    Список клентов
+  = link_to edit_person_path(@person), class: 'btn' do
+    %i.icon-edit
+    Редактировать
 
 - if @person.alerts.any?
   .alert
@@ -9,32 +26,8 @@
       - @person.alerts.each do |alert|
         %li= alert
 
-%dl
-  %dt Дата Рождения:
-  %dd= @person.birth_date
-
-  %dt Пол
-  %dd= @person.gender_text
-
-  %dt Идентификационний номер
-  %dd= @person.tax_num
-
-  %dt Номаер телефона
-  %dd= @person.cell_num
-
-  %dt Группа крови
-  %dd
-    = @person.blood_type
-    = @person.rh_factor ? '+' : '-'
-
-  %dt Дополнительная информация
-  %dd= @person.additional_details
-
-  %dt Больница
-  %dd= @person.clinic_id
-
-  %h2 Локации
-  = render partial: 'locations/grid', locals: { locations: @person.locations }
-  = link_to new_person_location_path(@person), class: 'btn' do
-    %i.icon-plus-sign
-    Добавить локацию
+%h2 Локации
+= render partial: 'locations/grid', locals: { locations: @person.locations }
+= link_to new_person_location_path(@person), class: 'btn' do
+  %i.icon-plus-sign
+  Добавить локацию

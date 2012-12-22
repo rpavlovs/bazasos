@@ -22,12 +22,16 @@ class Person < ActiveRecord::Base
     [family_name, given_name, middle_name].compact.join(' ')
   end
 
-  def gender_text
-    gender ? 'Мужской' : 'Женский'
+  def phone_numbers
+    ([cell_num] + locations.pluck(:phone_number)).delete_if(&:blank?)
   end
 
-  def phone_numbers
-    ([cell_num] + locations.pluck(:phone_number)).compact
+  def age
+    return nil unless self.birth_date
+    today = Date.today
+    result = today.year - birth_date.year
+    result -= 1 if today.month < birth_date.month || (today.month == birth_date.month && today.mday < birth_date.mday)
+    result
   end
 
   def self.search(search_object)
