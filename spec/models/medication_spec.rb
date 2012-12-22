@@ -1,5 +1,9 @@
 require 'spec_helper'
 
 describe Medication do
-  pending "add some examples to (or delete) #{__FILE__}"
+  it 'should validate attributes' do
+    FactoryGirl.build(:medication).should be_valid
+    FactoryGirl.build(:medication, name: nil).should be_invalid
+    FactoryGirl.build(:medication, person: nil).should be_invalid
+  end
 end
