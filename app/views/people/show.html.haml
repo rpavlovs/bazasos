@@ -12,12 +12,13 @@
       - else
         лет
 
-  = link_to people_path, class: 'btn' do
-    %i.icon-list
-    Список клентов
-  = link_to edit_person_path(@person), class: 'btn' do
-    %i.icon-edit
-    Редактировать
+  .btn-group
+    = link_to people_path, class: 'btn' do
+      %i.icon-list
+      Список клентов
+    = link_to edit_person_path(@person), class: 'btn' do
+      %i.icon-edit
+      Редактировать
 
 - if @person.alerts.any?
   .alert
@@ -26,8 +27,14 @@
       - @person.alerts.each do |alert|
         %li= alert
 
-%h2 Локации
+%h3 Локации
 = render partial: 'locations/grid', locals: { locations: @person.locations }
 = link_to new_person_location_path(@person), class: 'btn' do
   %i.icon-plus-sign
   Добавить локацию
+
+%h3 Аллергии
+= render partial: 'allergies/grid', locals: { allergies: @person.allergies }
+= link_to new_person_allergy_path(@person), class: 'btn' do
+  %i.icon-plus-sign
+  Добавить аллергию

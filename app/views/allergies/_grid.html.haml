@@ -1,0 +1,16 @@
+%table.table.table-condensed
+  %thead
+    %th Allergen
+    %th Type
+    %th Reaction
+    %th
+  %tbody
+    - allergies.each do |allergy|
+      %tr
+        %td= allergy.allergen
+        %td= allergy.allergen_type
+        %td= allergy.reaction
+        %td.btn-group
+          = link_to 'Редактировать', edit_person_location_path(allergy.person, allergy), class: 'btn btn-mini'
+          = link_to 'Удалить', [allergy.person, allergy], method: :delete, confirm: 'Это необратимая операция. Вы уверены?',
+            class: 'btn btn-danger btn-mini'

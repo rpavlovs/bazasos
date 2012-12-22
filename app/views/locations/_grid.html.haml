@@ -10,7 +10,7 @@
         %td= location.description
         %td= location.formatted_address
         %td= location.phone_number
-        %td
+        %td.btn-group
           = link_to 'Редактировать', edit_person_location_path(location.person, location), class: 'btn btn-mini'
           = link_to 'Удалить', [location.person, location], method: :delete, confirm: 'Это необратимая операция. Вы уверены?',
             class: 'btn btn-danger btn-mini'

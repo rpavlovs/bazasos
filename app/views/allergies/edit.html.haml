@@ -1,0 +1,10 @@
+%h1
+  = @allergy.persisted? ? 'Редактирование' : 'Добавление'
+  аллергии
+
+= simple_form_for [@person, @allergy], html: {class: 'form-horizontal'} do |f|
+  = f.input :allergen
+  = f.input :allergen_type
+  = f.input :reaction
+  = f.button :submit, class: 'btn-primary'
+  = link_to 'Cancel', @person, class: 'btn'
