@@ -1,6 +1,6 @@
 # encoding: utf-8
 class Location < ActiveRecord::Base
-  default_scope order('(is_registration or is_residence) desc')
+  default_scope order('is_residence desc')
 
   attr_accessible :person, :person_id, :postal_code, :region, :city, :street, :street_number,
     :building_number, :floor, :entrance, :appartment, :description, :phone_number,

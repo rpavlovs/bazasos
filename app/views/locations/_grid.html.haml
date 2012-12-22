@@ -1,0 +1,16 @@
+%table.table.table-condensed
+  %thead
+    %th Description
+    %th Address
+    %th Phone
+    %th
+  %tbody
+    - locations.each do |location|
+      %tr{class: location.is_registration ? 'info' : nil}
+        %td= location.description
+        %td= location.formatted_address
+        %td= location.phone_number
+        %td
+          = link_to 'Редактировать', edit_person_location_path(location.person, location), class: 'btn btn-mini'
+          = link_to 'Удалить', [location.person, location], method: :delete, confirm: 'Это необратимая операция. Вы уверены?',
+            class: 'btn btn-danger btn-mini'

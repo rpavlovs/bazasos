@@ -34,7 +34,7 @@
   %dd= @person.clinic_id
 
   %h2 Локации
-  = render @person.locations
+  = render partial: 'locations/grid', locals: { locations: @person.locations }
   = link_to new_person_location_path(@person), class: 'btn' do
     %i.icon-plus-sign
     Добавить локацию
