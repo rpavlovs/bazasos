@@ -15,10 +15,16 @@
   .btn-group
     = link_to people_path, class: 'btn' do
       %i.icon-list
-      Список клентов
+      Список клиентов
     = link_to edit_person_path(@person), class: 'btn' do
       %i.icon-edit
       Редактировать
+    = link_to @person, method: :delete, class: 'btn btn-danger', confirm: 'Это необратимая операция. Вы уверены?' do
+      %i.icon-remove.icon-white
+      Удалить
+
+= render partial: 'legal_information', locals: {person: @person}
+
 
 - if @person.alerts.any?
   .alert

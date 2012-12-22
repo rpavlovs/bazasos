@@ -1,0 +1,16 @@
+%details
+  %summary
+    %b Юридическая информация
+  %dl
+    %dt Фамилия
+    %dd= person.family_name
+    %dt Имя
+    %dd= person.given_name
+    %dt Отчество
+    %dd= person.middle_name
+    %dt Дата рождения
+    %dd= format_date person.birth_date
+    %dt Индетификационный код
+    %dd= person.tax_num
+    %dt Адрес прописки
+    %dd= person.registration_location.formatted_address
