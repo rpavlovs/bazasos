@@ -3,11 +3,11 @@
   = f.input :given_name
   = f.input :middle_name
   = f.input :birth_date, as: :datepicker, birth_date: true
-  = f.input :gender
+  = f.input :gender, collection: [['Мужской', true], ['Женский', false]], as: :radio_buttons
   = f.input :tax_num
   = f.input :cell_num
-  = f.input :blood_type
-  = f.input :rh_factor
+  = f.input :blood_type, collection: [['1 (0)', 1], ['2 (A)', 2], ['3 (B)', 3], ['4 (AB)', 4]]
+  = f.input :rh_factor, collection: [['Положительный', true], ['Отрицательный', false]], as: :radio_buttons
   = f.input :additional_details, input_html: {rows: 2}
   = f.input :clinic_id
   = f.button :submit

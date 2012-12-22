@@ -8,6 +8,7 @@ class Person < ActiveRecord::Base
   has_many :medications, dependent: :destroy
 
   validates_format_of :cell_num, with: /\d{10}/
+  validates_presence_of :family_name, :given_name, :middle_name, :birth_date, :tax_num, :cell_num, :blood_type
 
   def registration_location
     locations.registration.first
