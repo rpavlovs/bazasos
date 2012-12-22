@@ -2,11 +2,8 @@ class PeopleController < ApplicationController
   def index
     @people = Person.scoped
     if params[:search]
-      @search = PersonSearchObject.new(params[:search])
-      @people = @people.where("family_name ilike '%#{@search.family_name}%'") if @search.family_name.present?
-      @people = @people.where("given_name ilike '%#{@search.given_name}%'") if @search.given_name.present?
-      @people = @people.where("middle_name ilike '%#{@search.middle_name}%'") if @search.middle_name.present?
-      @people = @people.where(cell_num: @search.phone_number) if @search.phone_number.present?
+      @search = OpenStruct.new(params[:search])
+      @people = Person.search(@search)
     end
   end
 

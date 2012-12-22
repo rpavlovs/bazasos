@@ -13,6 +13,7 @@
       = f.input :middle_name
       = f.input :phone_number
       = f.button :submit, 'Search'
+      = link_to 'Reset', people_path, class: 'btn'
 
   .span9
     %table#people.table.table-condensed
