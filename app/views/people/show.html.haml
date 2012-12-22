@@ -6,32 +6,25 @@
     %small
       = @person.age
       - if @person.age % 10 == 1
-        год
+        = t('.year_1')
       - elsif (2..4).includes? @person.age % 10
-        года
+        = t('.year_2-4')
       - else
-        лет
+        = t('.year_other')
 
   .btn-group
     = link_to people_path, class: 'btn' do
       %i.icon-list
-      Список клиентов
+      = t('people.index.title')
     = link_to edit_person_path(@person), class: 'btn' do
       %i.icon-edit
-      Редактировать
-    = link_to @person, method: :delete, class: 'btn btn-danger', confirm: 'Это необратимая операция. Вы уверены?' do
+      = t('actions.edit')
+    = link_to @person, method: :delete, class: 'btn btn-danger', confirm: t('remove_confirm') do
       %i.icon-remove.icon-white
-      Удалить
+      = t('actions.remove')
 
-= render partial: 'legal_information', locals: {person: @person}
-
-
-- if @person.alerts.any?
-  .alert
-    %h4 Неполная информация о клиенте
-    %ul
-      - @person.alerts.each do |alert|
-        %li= alert
+= render partial: 'alerts', locals: { person: @person }
+= render partial: 'legal_information', locals: { person: @person }
 
 %h3 Локации
 = render partial: 'locations/grid', locals: { locations: @person.locations }

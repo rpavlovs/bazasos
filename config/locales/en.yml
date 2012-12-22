@@ -1,5 +1,10 @@
 ru:
- actions:
-  save: Сохранить
-  cancel: Отмена
-  remove: Удалить
+  actions:
+    add: Добавить
+    save: Сохранить
+    cancel: Отмена
+    remove: Удалить
+    search: Искать
+    reset: Очистить
+    edit: Редактировать
+  remove_confirm: Это необратимая операция. Вы уверены?

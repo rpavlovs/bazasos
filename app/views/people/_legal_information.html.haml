@@ -1,16 +1,20 @@
 %details
   %summary
-    %b Юридическая информация
+    %b= t('.title')
   %dl
-    %dt Фамилия
+    %dt= Person.human_attribute_name(:family_name)
     %dd= person.family_name
-    %dt Имя
+    %dt= Person.human_attribute_name(:given_name)
     %dd= person.given_name
-    %dt Отчество
+    %dt= Person.human_attribute_name(:middle_name)
     %dd= person.middle_name
-    %dt Дата рождения
+    %dt= Person.human_attribute_name(:birth_date)
     %dd= format_date person.birth_date
-    %dt Индетификационный код
+    %dt= Person.human_attribute_name(:tax_num)
     %dd= person.tax_num
-    %dt Адрес прописки
-    %dd= person.registration_location.formatted_address
+    %dt= Person.human_attribute_name(:registration_location)
+    %dd
+      - if person.registration_location
+        = person.registration_location.formatted_address
+      - else
+        = t('.not_specified')

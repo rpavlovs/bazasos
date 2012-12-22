@@ -1,1 +1,16 @@
 ru:
+  people:
+    index:
+      title: Клиенты
+      add: Добавить Клиента
+      phones: Телефоны
+      phone_number: Номер телефона
+    show:
+      year_1: год
+      year_2-4: года
+      year_other: лет
+    alerts:
+      title: Неполная информация о клиенте
+    legal_information:
+      title: Юридическая информация
+      not_specified: Не указан
