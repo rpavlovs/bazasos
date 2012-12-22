@@ -1,0 +1,16 @@
+%table.table.table-condensed
+  %thead
+    %th Name
+    %th Type
+    %th Dose
+    %th
+  %tbody
+    - medications.each do |medication|
+      %tr
+        %td= medication.name
+        %td= medication.med_type
+        %td= medication.dose
+        %td.btn-group
+          = link_to 'Редактировать', edit_person_medication_path(medication.person, medication), class: 'btn btn-mini'
+          = link_to 'Удалить', [medication.person, medication], method: :delete, confirm: 'Это необратимая операция. Вы уверены?',
+            class: 'btn btn-danger btn-mini'

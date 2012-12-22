@@ -1,0 +1,10 @@
+%h1
+  = @medication.persisted? ? 'Редактирование' : 'Добавление'
+  медикамента
+
+= simple_form_for [@person, @medication], html: {class: 'form-horizontal'} do |f|
+  = f.input :name
+  = f.input :med_type
+  = f.input :dose
+  = f.button :submit, class: 'btn-primary'
+  = link_to 'Cancel', @person, class: 'btn'

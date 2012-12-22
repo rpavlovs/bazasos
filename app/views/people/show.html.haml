@@ -33,6 +33,12 @@
   %i.icon-plus-sign
   Добавить локацию
 
+%h3 Медикаменты
+= render partial: 'medications/grid', locals: { medications: @person.medications }
+= link_to new_person_medication_path(@person), class: 'btn' do
+  %i.icon-plus-sign
+  Добавить медикамент
+
 %h3 Аллергии
 = render partial: 'allergies/grid', locals: { allergies: @person.allergies }
 = link_to new_person_allergy_path(@person), class: 'btn' do
