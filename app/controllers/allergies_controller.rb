@@ -38,7 +38,7 @@ class AllergiesController < ApplicationController
     @person = Person.find(params[:person_id])
   end
 
-  def find_location
+  def find_allergy
     @allergy = Allergy.find(params[:id])
   end
 end

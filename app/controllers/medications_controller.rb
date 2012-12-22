@@ -38,7 +38,7 @@ class MedicationsController < ApplicationController
     @person = Person.find(params[:person_id])
   end
 
-  def find_location
+  def find_medication
     @medication = Medication.find(params[:id])
   end
 end
