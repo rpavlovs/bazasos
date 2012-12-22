@@ -5,5 +5,8 @@ FactoryGirl.define do
     sequence(:middle_name) { |n| "middle_name_#{n}" }
     birth_date { (80 + rand(10)).years.ago }
     cell_num '1234567890'
+    blood_type 1
+    rh_factor true
+    tax_num '123456'
   end
 end
