@@ -16,7 +16,7 @@ ActiveRecord::Schema.define(:version => 20121223095059) do
   create_table "allergies", :force => true do |t|
     t.integer  "person_id"
     t.string   "allergen"
-    t.string   "allergen_type"
+    t.string   "allergyn_type"
     t.string   "reaction"
     t.datetime "created_at",    :null => false
     t.datetime "updated_at",    :null => false
@@ -44,7 +44,7 @@ ActiveRecord::Schema.define(:version => 20121223095059) do
     t.integer  "floor"
     t.integer  "entrance"
     t.integer  "appartment"
-    t.string   "phone_number",    :limit => 20
+    t.string   "phone_number",    :limit => 10
     t.text     "comment"
     t.boolean  "is_registration"
     t.boolean  "is_residence"
@@ -67,14 +67,14 @@ ActiveRecord::Schema.define(:version => 20121223095059) do
     t.string   "middle_name"
     t.date     "birth_date"
     t.boolean  "gender"
-    t.integer  "tax_num"
-    t.integer  "cell_num"
+    t.string   "tax_num",            :limit => 10
+    t.string   "cell_num",           :limit => 10
     t.integer  "blood_type"
     t.boolean  "rh_factor"
     t.text     "additional_details"
     t.integer  "clinic_id"
-    t.datetime "created_at",         :null => false
-    t.datetime "updated_at",         :null => false
+    t.datetime "created_at",                       :null => false
+    t.datetime "updated_at",                       :null => false
   end
 
   create_table "users", :force => true do |t|

@@ -9,6 +9,7 @@ class Person < ActiveRecord::Base
   has_many :emergency_contacts, dependent: :destroy
 
   validates_format_of :cell_num, with: /\d{10}/
+  validates_format_of :tax_num, with: /\d{10}/
   validates_presence_of :family_name, :given_name, :middle_name, :birth_date, :tax_num, :cell_num, :blood_type
   validates_inclusion_of :rh_factor, in: [true, false]
   validates_inclusion_of :gender, in: [true, false]

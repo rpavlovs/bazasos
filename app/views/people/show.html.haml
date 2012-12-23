@@ -7,7 +7,7 @@
       = @person.age
       - if @person.age % 10 == 1
         = t('.year_1')
-      - elsif (2..4).includes? @person.age % 10
+      - elsif (2..4).include? @person.age % 10
         = t('.year_2-4')
       - else
         = t('.year_other')

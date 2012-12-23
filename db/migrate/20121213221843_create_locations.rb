@@ -14,7 +14,7 @@ class CreateLocations < ActiveRecord::Migration
       t.integer :entrance
       t.integer :appartment
 
-      t.string :phone_number, limit: 20
+      t.string :phone_number, limit: 10
       t.text :comment
 
       t.boolean :is_registration

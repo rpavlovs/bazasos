@@ -1,3 +1,7 @@
+%h1
+  = @person.persisted? ? t('actions.editing') : t('actions.adding')
+  клиента
+
 = simple_form_for @person, html: {class: 'form-horizontal'} do |f|
   = f.input :family_name
   = f.input :given_name
@@ -11,4 +15,6 @@
   = f.input :rh_factor, collection: [['+', true], ['-', false]], as: :radio_buttons
   = f.input :additional_details, input_html: {rows: 2}
   = f.input :clinic_id
-  = f.button :submit
+  .btn-group
+    = f.button :submit, class: 'btn-primary'
+    = link_to t('actions.cancel'), @person.persisted? ? person_path(@person) : people_path, class: 'btn'
