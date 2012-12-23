@@ -1,8 +1,8 @@
 %table.table.table-condensed
   %thead
-    %th Allergen
-    %th Type
-    %th Reaction
+    %th= Allergy.human_attribute_name(:allergen)
+    %th= Allergy.human_attribute_name(:allergen_type)
+    %th= Allergy.human_attribute_name(:reaction)
     %th
   %tbody
     - allergies.each do |allergy|
@@ -11,7 +11,7 @@
         %td= allergy.allergen_type
         %td= allergy.reaction
         %td.btn-group
-          = link_to 'Редактировать', edit_person_allergy_path(allergy.person, allergy), class: 'btn btn-mini'
-          = link_to 'Удалить', [allergy.person, allergy], method: :delete,
+          = link_to t('actions.edit'), edit_person_allergy_path(allergy.person, allergy), class: 'btn btn-mini'
+          = link_to t('actions.remove'), [allergy.person, allergy], method: :delete,
             confirm: t('remove_confirm'),
             class: 'btn btn-danger btn-mini'

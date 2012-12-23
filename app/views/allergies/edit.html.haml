@@ -1,5 +1,5 @@
 %h1
-  = @allergy.persisted? ? 'Редактирование' : 'Добавление'
+  = @allergy.persisted? ? t('actions.editing') : t('actions.adding')
   аллергии
 
 = simple_form_for [@person, @allergy], html: {class: 'form-horizontal'} do |f|

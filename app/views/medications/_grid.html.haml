@@ -11,6 +11,6 @@
         %td= medication.med_type
         %td= medication.dose
         %td.btn-group
-          = link_to 'Редактировать', edit_person_medication_path(medication.person, medication), class: 'btn btn-mini'
-          = link_to 'Удалить', [medication.person, medication], method: :delete, confirm: 'Это необратимая операция. Вы уверены?',
+          = link_to t('actions.edit'), edit_person_medication_path(medication.person, medication), class: 'btn btn-mini'
+          = link_to t('actions.remove'), [medication.person, medication], method: :delete, confirm: t('remove_confirm'),
             class: 'btn btn-danger btn-mini'
