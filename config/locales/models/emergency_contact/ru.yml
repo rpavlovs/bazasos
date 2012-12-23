@@ -1,0 +1,10 @@
+ru:
+  activerecord:
+    models:
+      emergency_contact: Экстернный контакт
+    attributes:
+      emergency_contact:
+        name: ФИО
+        relationship_type: Тип связи/родство
+        phones: Телефоны
+        priority: Приоритет

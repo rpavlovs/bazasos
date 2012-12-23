@@ -11,15 +11,25 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121216185314) do
+ActiveRecord::Schema.define(:version => 20121223095059) do
 
   create_table "allergies", :force => true do |t|
     t.integer  "person_id"
     t.string   "allergen"
-    t.string   "type"
+    t.string   "allergen_type"
     t.string   "reaction"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
+  end
+
+  create_table "emergency_contacts", :force => true do |t|
+    t.integer  "person_id"
+    t.string   "name"
+    t.string   "relationship_type"
+    t.string   "phones"
+    t.integer  "priority"
+    t.datetime "created_at",        :null => false
+    t.datetime "updated_at",        :null => false
   end
 
   create_table "locations", :force => true do |t|
@@ -45,7 +55,7 @@ ActiveRecord::Schema.define(:version => 20121216185314) do
   create_table "medications", :force => true do |t|
     t.integer  "person_id"
     t.string   "name"
-    t.string   "type"
+    t.string   "med_type"
     t.string   "dose"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false

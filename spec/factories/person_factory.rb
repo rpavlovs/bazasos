@@ -8,5 +8,6 @@ FactoryGirl.define do
     blood_type 1
     rh_factor true
     tax_num '123456'
+    gender false
   end
 end
