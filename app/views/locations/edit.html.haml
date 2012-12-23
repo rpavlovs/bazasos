@@ -18,5 +18,6 @@
   = f.input :entrance
   = f.input :phone_number, hint: 'Формат: 0441234567'
   = f.input :comment, input_html: {rows: 2}
-  = f.button :submit, class: 'btn-primary'
-  = link_to 'Cancel', @person, class: 'btn'
+  .btn-group
+    = f.button :submit, class: 'btn-primary'
+    = link_to t('actions.cancel'), @person, class: 'btn'
