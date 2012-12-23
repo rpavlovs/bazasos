@@ -6,5 +6,6 @@
   = f.input :name
   = f.input :med_type
   = f.input :dose
-  = f.button :submit, class: 'btn-primary'
-  = link_to 'Cancel', @person, class: 'btn'
+  .btn-group
+    = f.button :submit, class: 'btn-primary'
+    = link_to 'Cancel', @person, class: 'btn'

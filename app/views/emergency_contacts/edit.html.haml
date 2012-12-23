@@ -1,0 +1,12 @@
+%h1
+  = @emergency_contact.persisted? ? 'Редактирование' : 'Добавление'
+  экстренного контакта
+
+= simple_form_for [@person, @emergency_contact], html: {class: 'form-horizontal'} do |f|
+  = f.input :name
+  = f.input :relationship_type
+  = f.input :phones
+  = f.input :priority, collection: [['Низкий', 1], ['Средний', 2], ['Высокий', 3]]
+  .btn-group
+    = f.button :submit, class: 'btn-primary'
+    = link_to 'Cancel', @person, class: 'btn'

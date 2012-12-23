@@ -3,6 +3,7 @@ Bazasos::Application.routes.draw do
   resources :users
   resources :people do
     resources :allergies
+    resources :emergency_contacts
     resources :locations
     resources :medications
   end

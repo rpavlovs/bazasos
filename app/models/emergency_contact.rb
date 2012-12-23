@@ -3,4 +3,5 @@ class EmergencyContact < ActiveRecord::Base
   belongs_to :person
   validates_presence_of :person_id, :name, :relationship_type, :phones, :priority
   validates_inclusion_of :priority, in: (1..3)
+  default_scope order('priority desc')
 end

@@ -43,3 +43,9 @@
 = link_to new_person_allergy_path(@person), class: 'btn' do
   %i.icon-plus-sign
   Добавить аллергию
+
+%h3 Экстренные контакты
+= render partial: 'emergency_contacts/grid', locals: { emergency_contacts: @person.emergency_contacts }
+= link_to new_person_emergency_contact_path(@person), class: 'btn' do
+  %i.icon-plus-sign
+  Добавить экстренный контакт

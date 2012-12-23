@@ -12,5 +12,6 @@
         %td= allergy.reaction
         %td.btn-group
           = link_to 'Редактировать', edit_person_allergy_path(allergy.person, allergy), class: 'btn btn-mini'
-          = link_to 'Удалить', [allergy.person, allergy], method: :delete, confirm: 'Это необратимая операция. Вы уверены?',
+          = link_to 'Удалить', [allergy.person, allergy], method: :delete,
+            confirm: t('remove_confirm'),
             class: 'btn btn-danger btn-mini'
