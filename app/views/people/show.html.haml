@@ -26,26 +26,7 @@
 = render partial: 'alerts', locals: { person: @person }
 = render partial: 'legal_information', locals: { person: @person }
 
-%h3 Локации
-= render partial: 'locations/grid', locals: { locations: @person.locations }
-= link_to new_person_location_path(@person), class: 'btn' do
-  %i.icon-plus-sign
-  Добавить локацию
-
-%h3 Медикаменты
-= render partial: 'medications/grid', locals: { medications: @person.medications }
-= link_to new_person_medication_path(@person), class: 'btn' do
-  %i.icon-plus-sign
-  Добавить медикамент
-
-%h3 Аллергии
-= render partial: 'allergies/grid', locals: { allergies: @person.allergies }
-= link_to new_person_allergy_path(@person), class: 'btn' do
-  %i.icon-plus-sign
-  Добавить аллергию
-
-%h3 Экстренные контакты
-= render partial: 'emergency_contacts/grid', locals: { emergency_contacts: @person.emergency_contacts }
-= link_to new_person_emergency_contact_path(@person), class: 'btn' do
-  %i.icon-plus-sign
-  Добавить экстренный контакт
+= render partial: 'locations/grid', locals: { person: @person, locations: @person.locations }
+= render partial: 'medications/grid', locals: { person: @person, medications: @person.medications }
+= render partial: 'allergies/grid', locals: { person: @person, allergies: @person.allergies }
+= render partial: 'emergency_contacts/grid', locals: { person: @person, emergency_contacts: @person.emergency_contacts }

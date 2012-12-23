@@ -1,8 +1,10 @@
-%table.table.table-condensed
+%h3 Локации
+
+%table.table.table-condensed.table-bordered
   %thead
-    %th Description
-    %th Address
-    %th Phone
+    %th= Location.human_attribute_name(:description)
+    %th= Location.human_attribute_name(:address)
+    %th= Location.human_attribute_name(:phone_number)
     %th
   %tbody
     - locations.each do |location|
@@ -11,6 +13,10 @@
         %td= format_address location
         %td= location.phone_number
         %td.btn-group
-          = link_to t('actions.edit'), edit_person_location_path(location.person, location), class: 'btn btn-mini'
-          = link_to t('actions.remove'), [location.person, location], method: :delete, confirm: t('remove_confirm'),
+          = link_to t('actions.edit'), edit_person_location_path(person, location), class: 'btn btn-mini'
+          = link_to t('actions.remove'), [person, location], method: :delete, confirm: t('remove_confirm'),
             class: 'btn btn-danger btn-mini'
+
+= link_to new_person_location_path(person), class: 'btn btn-mini' do
+  %i.icon-plus-sign
+  Добавить локацию
