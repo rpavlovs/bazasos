@@ -8,3 +8,6 @@ ru:
     reset: Очистить
     edit: Редактировать
   remove_confirm: Это необратимая операция. Вы уверены?
+  date:
+    formats:
+      default: '%d.%m.%Y'

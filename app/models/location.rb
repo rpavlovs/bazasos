@@ -16,8 +16,4 @@ class Location < ActiveRecord::Base
 
   scope :registration, where(is_registration: true)
   scope :residence, where(is_residence: true)
-
-  def formatted_address
-    [region, city, postal_code, street, street_number, building_number, appartment, entrance, floor].delete_if(&:blank?).join(', ')
-  end
 end

@@ -9,12 +9,12 @@
     %dt= Person.human_attribute_name(:middle_name)
     %dd= person.middle_name
     %dt= Person.human_attribute_name(:birth_date)
-    %dd= format_date person.birth_date
+    %dd= l person.birth_date
     %dt= Person.human_attribute_name(:tax_num)
     %dd= person.tax_num
     %dt= Person.human_attribute_name(:registration_location)
     %dd
       - if person.registration_location
-        = person.registration_location.formatted_address
+        = format_address person.registration_location
       - else
         = t('.not_specified')

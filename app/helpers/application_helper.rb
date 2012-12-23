@@ -9,8 +9,4 @@ module ApplicationHelper
 	    "#{base_title} | #{page_title}"
 	  end
 	end
-
-  def format_date(date)
-    date.strftime('%d.%m.%Y')
-  end
 end
