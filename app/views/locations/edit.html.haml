@@ -1,0 +1,23 @@
+%h1
+  = @location.persisted? ? t('actions.editing') : t('actions.adding')
+  локации
+
+= simple_form_for [@person, @location], html: {class: 'form-horizontal'} do |f|
+  = f.input :description
+  - if @location.is_residence or @person.residence_location.nil?
+    = f.input :is_residence
+  - if @location.is_registration or @person.registration_location.nil?
+    = f.input :is_registration
+  = f.input :postal_code
+  = f.input :region
+  = f.input :city
+  = f.input :street
+  = f.input :street_number
+  = f.input :building_number
+  = f.input :floor
+  = f.input :entrance
+  = f.input :phone_number, hint: 'Формат: 0441234567'
+  = f.input :comment, input_html: {rows: 2}
+  .btn-group
+    = f.button :submit, class: 'btn-primary'
+    = link_to t('actions.cancel'), @person, class: 'btn'

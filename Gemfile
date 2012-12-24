@@ -4,10 +4,9 @@ gem 'rails', '3.2.9'
 gem 'bootstrap-sass', '2.1'
 gem 'bcrypt-ruby', '3.0.1'
 
-# Bundle edge Rails instead:
-# gem 'rails', :git => 'git://github.com/rails/rails.git'
-
-gem 'sqlite3'
+gem 'pg'
+gem 'haml-rails'
+gem 'simple_form'
 
 group :development, :test do
   gem 'rspec-rails', '2.11.0'
@@ -21,6 +20,7 @@ group :test do
   gem 'capybara', '1.1.2'
   gem 'rb-fsevent', :require => false
   gem 'growl'
+  gem 'factory_girl', '~> 4.0'
 end
 
 group :production do
@@ -40,9 +40,7 @@ group :assets do
 end
 
 gem 'jquery-rails'
-
-# To use ActiveModel has_secure_password
-# gem 'bcrypt-ruby', '~> 3.0.0'
+gem 'jquery-ui-rails'
 
 # To use Jbuilder templates for JSON
 # gem 'jbuilder'

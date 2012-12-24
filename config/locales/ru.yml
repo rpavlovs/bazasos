@@ -1,0 +1,15 @@
+ru:
+  actions:
+    add: Добавить
+    adding: Добавление
+    save: Сохранить
+    cancel: Отмена
+    remove: Удалить
+    search: Искать
+    reset: Очистить
+    edit: Редактировать
+    editing: Редактирование
+  remove_confirm: Это необратимая операция. Вы уверены?
+  date:
+    formats:
+      default: '%d.%m.%Y'

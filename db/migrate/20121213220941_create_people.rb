@@ -6,8 +6,8 @@ class CreatePeople < ActiveRecord::Migration
       t.string :middle_name
       t.date :birth_date
       t.boolean :gender
-      t.integer :tax_num
-      t.integer :cell_num
+      t.string :tax_num, limit: 10
+      t.string :cell_num, limit: 10
       t.integer :blood_type
       t.boolean :rh_factor
       t.text :additional_details

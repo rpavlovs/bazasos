@@ -1,0 +1,22 @@
+%h3 Медикаменты
+
+%table.table.table-condensed.table-bordered
+  %thead
+    %th= Medication.human_attribute_name(:name)
+    %th= Medication.human_attribute_name(:med_type)
+    %th= Medication.human_attribute_name(:dose)
+    %th
+  %tbody
+    - medications.each do |medication|
+      %tr
+        %td= medication.name
+        %td= medication.med_type
+        %td= medication.dose
+        %td.btn-group
+          = link_to t('actions.edit'), edit_person_medication_path(person, medication), class: 'btn btn-mini'
+          = link_to t('actions.remove'), [person, medication], method: :delete, confirm: t('remove_confirm'),
+            class: 'btn btn-danger btn-mini'
+
+= link_to new_person_medication_path(person), class: 'btn btn-mini' do
+  %i.icon-plus-sign
+  Добавить медикамент

@@ -1,0 +1,20 @@
+ru:
+  activerecord:
+    models:
+      location: Локация
+    attributes:
+      location:
+        description: Описание
+        address: Адрес
+        phone_number: Номер телефона
+        is_registration: Месть прописки
+        is_residence: Место проживания
+        postal_code: Почтовый индекс
+        region: Область
+        city: Город
+        street: Улица
+        street_number: Дом
+        building_number: Корпус
+        floor: Этаж
+        entrance: Подъезд
+        comment: Комментарий

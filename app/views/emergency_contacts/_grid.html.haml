@@ -1,0 +1,26 @@
+%h3 Экстренные контакты
+
+%table.table.table-condensed.table-bordered
+  %thead
+    %th= EmergencyContact.human_attribute_name(:name)
+    %th= EmergencyContact.human_attribute_name(:relationship_type)
+    %th= EmergencyContact.human_attribute_name(:phones)
+    %th= EmergencyContact.human_attribute_name(:priority)
+    %th
+  %tbody
+    - emergency_contacts.each do |emergency_contact|
+      %tr
+        %td= emergency_contact.name
+        %td= emergency_contact.relationship_type
+        %td= emergency_contact.phones
+        %td= emergency_contact.priority
+        %td.btn-group
+          = link_to t('actions.edit'), edit_person_emergency_contact_path(person, emergency_contact),
+            class: 'btn btn-mini'
+          = link_to t('actions.remove'), [person, emergency_contact], method: :delete,
+            confirm: t('remove_confirm'),
+            class: 'btn btn-danger btn-mini'
+
+= link_to new_person_emergency_contact_path(person), class: 'btn btn-mini' do
+  %i.icon-plus-sign
+  Добавить экстренный контакт
