@@ -17,5 +17,10 @@ production:
   database: bazasos
 
 staging:
-  <<: *base
+  encoding: unicode
+  adapter: postgtesql
+  host: localhost
+  port: 5432
+  username: postgres
+  password: postgres
   database: bazasos_staging
