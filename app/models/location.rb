@@ -1,27 +1,19 @@
-# == Schema Information
-#
-# Table name: locations
-#
-#  id               :integer          not null, primary key
-#  description      :text
-#  phone_num        :integer
-#  city_name        :string(255)
-#  street_name      :string(255)
-#  street_num       :string(255)
-#  building_num     :integer
-#  entrance_num     :integer
-#  floor_num        :integer
-#  apartment_num    :integer
-#  postal_code      :integer
-#  address_commment :text
-#  is_registration  :boolean
-#  is_residence     :boolean
-#  person_id        :integer
-#  created_at       :datetime         not null
-#  updated_at       :datetime         not null
-#
-
+# encoding: utf-8
 class Location < ActiveRecord::Base
-  attr_accessible :address_commment, :apartment_num, :building_num, :city_name, :description, :entrance_num, :floor_num, :is_registration, :is_residence, :person_id, :phone_num, :postal_code, :street_name, :street_num
+  default_scope order('is_residence desc')
+
+  attr_accessible :person, :person_id, :postal_code, :region, :city, :street, :street_number,
+    :building_number, :floor, :entrance, :appartment, :description, :phone_number,
+    :comment, :is_registration, :is_residence
+
+  validates_presence_of :description, :city, :street, :street_number
+
+  validates_format_of :phone_number, with: /\d{10}/, allow_blank: true
+  validates_format_of :postal_code, with: /\d{5}/, allow_blank: true
+  validates_format_of :street_number, with: /^\d+[а-я]?(\/\d+[а-я]?)?$/
+
   belongs_to :person
+
+  scope :registration, where(is_registration: true)
+  scope :residence, where(is_residence: true)
 end

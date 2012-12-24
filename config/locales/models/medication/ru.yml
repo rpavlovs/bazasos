@@ -1,0 +1,9 @@
+ru:
+  activerecord:
+    models:
+      medication: Медикамент
+    attributes:
+      medication:
+        name: Название
+        med_type: Тип
+        dose: Дозировка

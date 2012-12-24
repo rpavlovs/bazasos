@@ -11,25 +11,54 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121214162152) do
+ActiveRecord::Schema.define(:version => 20121223095059) do
+
+  create_table "allergies", :force => true do |t|
+    t.integer  "person_id"
+    t.string   "allergen"
+    t.string   "allergyn_type"
+    t.string   "reaction"
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
+  end
+
+  create_table "emergency_contacts", :force => true do |t|
+    t.integer  "person_id"
+    t.string   "name"
+    t.string   "relationship_type"
+    t.string   "phones"
+    t.integer  "priority"
+    t.datetime "created_at",        :null => false
+    t.datetime "updated_at",        :null => false
+  end
 
   create_table "locations", :force => true do |t|
-    t.text     "description"
-    t.integer  "phone_num"
-    t.string   "city_name"
-    t.string   "street_name"
-    t.string   "street_num"
-    t.integer  "building_num"
-    t.integer  "entrance_num"
-    t.integer  "floor_num"
-    t.integer  "apartment_num"
-    t.integer  "postal_code"
-    t.text     "address_commment"
+    t.integer  "person_id"
+    t.string   "description"
+    t.string   "postal_code",     :limit => 5
+    t.string   "region"
+    t.string   "city"
+    t.string   "street"
+    t.string   "street_number"
+    t.integer  "building_number"
+    t.integer  "floor"
+    t.integer  "entrance"
+    t.integer  "appartment"
+    t.string   "phone_number",    :limit => 10
+    t.text     "comment"
     t.boolean  "is_registration"
     t.boolean  "is_residence"
+    t.datetime "created_at",                    :null => false
+    t.datetime "updated_at",                    :null => false
+  end
+
+  create_table "medications", :force => true do |t|
     t.integer  "person_id"
-    t.datetime "created_at",       :null => false
-    t.datetime "updated_at",       :null => false
+    t.string   "name"
+    t.string   "med_type"
+    t.string   "dose"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   create_table "people", :force => true do |t|
@@ -38,14 +67,14 @@ ActiveRecord::Schema.define(:version => 20121214162152) do
     t.string   "middle_name"
     t.date     "birth_date"
     t.boolean  "gender"
-    t.integer  "tax_num"
-    t.integer  "cell_num"
+    t.string   "tax_num",            :limit => 10
+    t.string   "cell_num",           :limit => 10
     t.integer  "blood_type"
     t.boolean  "rh_factor"
     t.text     "additional_details"
     t.integer  "clinic_id"
-    t.datetime "created_at",         :null => false
-    t.datetime "updated_at",         :null => false
+    t.datetime "created_at",                       :null => false
+    t.datetime "updated_at",                       :null => false
   end
 
   create_table "users", :force => true do |t|
@@ -53,9 +82,9 @@ ActiveRecord::Schema.define(:version => 20121214162152) do
     t.string   "last_name"
     t.string   "first_name"
     t.string   "middle_name"
+    t.string   "password_digest"
     t.datetime "created_at",      :null => false
     t.datetime "updated_at",      :null => false
-    t.string   "password_digest"
   end
 
   add_index "users", ["login"], :name => "index_users_on_login", :unique => true
