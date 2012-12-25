@@ -10,14 +10,23 @@ $grayMediumLight: #eaeaea;
   box-sizing: border-box;
 }
 
+@media (max-width: 767px) {
+  footer {
+    margin-left: -20px;
+    margin-right: -20px;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+}
+
 /* universal */
+
+html, body {
+  height: 100%;
+}
 
 html {
   overflow-y: scroll;
-}
-
-body {
-  padding-top: 60px;
 }
 
 section {
@@ -62,10 +71,30 @@ p {
   line-height: 1.7em;
 }
 
+/* header */
+
+header {
+  padding-bottom: 60px;
+}
+
 /* footer */
 
+/* Wrapper for page content to push down footer */
+#wrap {
+  // padding-top: 60px;
+  min-height: 100%;
+  height: auto !important;
+  height: 100%;
+  /* Negative indent footer by it's height */
+  margin: 0 auto -35px;
+}
+
+#push, footer {
+  height: 30px;
+}
+
 footer {
-  margin-top: 45px;
+  // margin-top: 45px;
   padding-top: 5px;
   border-top: 1px solid $grayMediumLight;
   color: $grayLight;
