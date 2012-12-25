@@ -30,15 +30,48 @@ feature 'People' do
     }.to change{ Person.count }.by(1)
   end
 
-  it 'should search' do
-    person = FactoryGirl.create(:person)
-    another_person = FactoryGirl.create(:person)
-    visit people_path
-    fill_in 'search[family_name]', with: person.family_name
-    click_button I18n.t('actions.search')
-    within 'table#people tbody' do
-      page.should have_content person.family_name
-      page.should_not have_content another_person.family_name
+  context 'search' do
+    let!(:person) { FactoryGirl.create(:person, cell_num: '1234567980') }
+    let!(:another_person) { FactoryGirl.create(:person, cell_num: '0987654321') }
+
+    it 'should search by family_name' do
+      visit people_path
+      fill_in 'search[family_name]', with: person.family_name
+      click_button I18n.t('actions.search')
+      within 'table#people tbody' do
+        page.should have_content person.family_name
+        page.should_not have_content another_person.family_name
+      end
+    end
+
+    it 'should search by cell number' do
+      visit people_path
+      fill_in 'search[phone_number]', with: person.cell_num
+      click_button I18n.t('actions.search')
+      within 'table#people tbody' do
+        page.should have_content person.family_name
+        page.should_not have_content another_person.family_name
+      end
+    end
+
+    it 'should search by location phone number' do
+      location = FactoryGirl.create(:location, person: person, phone_number: '1231231321')
+
+      visit people_path
+      fill_in 'search[phone_number]', with: location.phone_number
+      click_button I18n.t('actions.search')
+      within 'table#people tbody' do
+        page.should have_content person.family_name
+        page.should_not have_content another_person.family_name
+      end
+
+      another_location = FactoryGirl.create(:location, person: another_person, phone_number: location.phone_number)
+      fill_in 'search[phone_number]', with: location.phone_number
+      click_button I18n.t('actions.search')
+      within 'table#people tbody' do
+        page.should have_content person.family_name
+        page.should have_content another_person.family_name
+      end
     end
   end
 

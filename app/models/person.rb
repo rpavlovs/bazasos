@@ -65,7 +65,7 @@ class Person < ActiveRecord::Base
     result = result.where('middle_name ilike ?', "#{search_object.middle_name}%")
     if search_object.phone_number.present?
       locations = Location.where(phone_number: search_object.phone_number)
-      result = result.where(arel_table[:cell_num].eq(search_object.phone_number).or(arel_table[:id].in(locations.pluck(:id))))
+      result = result.where(arel_table[:cell_num].eq(search_object.phone_number).or(arel_table[:id].in(locations.pluck(:person_id))))
     end
     result
   end
