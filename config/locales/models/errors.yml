@@ -1,0 +1,7 @@
+ru:
+  activerecord:
+    errors:
+      messages:
+        blank: не заполнено
+        invalid: неправильный формат
+        inclusion: не выбрано
