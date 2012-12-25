@@ -14,13 +14,14 @@ group :development, :test do
   gem 'guard-rspec'
   gem 'guard-spork'
   gem 'annotate', '2.5.0'
+  gem 'launchy'
 end
 
 group :test do
   gem 'capybara', '1.1.2'
   gem 'rb-fsevent', :require => false
   gem 'growl'
-  gem 'factory_girl', '~> 4.0'
+  gem 'factory_girl_rails'
 end
 
 group :production do

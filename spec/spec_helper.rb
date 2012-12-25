@@ -1,9 +1,6 @@
 require 'rubygems'
 require 'spork'
-require 'factory_girl'
-#uncomment the following line to use spork with the debugger
 #require 'spork/ext/ruby-debug'
-FactoryGirl.find_definitions
 
 Spork.prefork do
   # Loading more in this block will cause your tests to run faster. However,
@@ -54,7 +51,9 @@ end
 
 Spork.each_run do
   # This code will be run each time you run your specs.
-
+  require 'factory_girl_rails'
+  FactoryGirl.factories.clear
+  FactoryGirl.find_definitions
 end
 
 # --- Instructions ---

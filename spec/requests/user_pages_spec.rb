@@ -14,6 +14,7 @@ describe "User pages" do
 
   describe "profile page" do
 		# Code to make a user variable
+    before { pending }
 		before { visit user_path(user) }
 
 		it { should have_selector('h1',    text: user.name) }
