@@ -1,8 +1,8 @@
 base: &base
   adapter: postgresql
   encoding: unicode
-  host: '/home/roman/pg'
-  port: 5434
+  host: localhost
+  port: 5432
 
 development:
   <<: *base
@@ -13,8 +13,13 @@ test:
   database: bazasos_test
 
 production:
-  <<: *base
-  database: bazasos
+  encoding: unicode
+  adapter: postgresql
+  host: localhost
+  port: 5432
+  username: postgres
+  password: postgres
+  database: bazasos_staging
 
 staging:
   encoding: unicode
