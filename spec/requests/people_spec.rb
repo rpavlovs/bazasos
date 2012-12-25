@@ -29,4 +29,25 @@ feature 'People' do
       click_button "Create #{Person.model_name.human}"
     }.to change{ Person.count }.by(1)
   end
+
+  it 'should search' do
+    person = FactoryGirl.create(:person)
+    another_person = FactoryGirl.create(:person)
+    visit people_path
+    fill_in 'search[family_name]', with: person.family_name
+    click_button I18n.t('actions.search')
+    within 'table#people tbody' do
+      page.should have_content person.family_name
+      page.should_not have_content another_person.family_name
+    end
+  end
+
+  it 'should show warnings' do
+    person = FactoryGirl.create(:person)
+    visit person_path(person)
+    within '.alert' do
+      page.should have_content I18n.t('people.alerts.no_registration')
+      page.should have_content I18n.t('people.alerts.no_residence')
+    end
+  end
 end

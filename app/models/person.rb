@@ -73,10 +73,10 @@ class Person < ActiveRecord::Base
   def alerts
     result = []
     if registration_location.nil?
-      result << 'Не указан адрес прописки'
+      result << :no_registration
     end
     if residence_location.nil?
-      result << 'Не указан адрес проживания'
+      result << :no_residence
     end
     result
   end

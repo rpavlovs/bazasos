@@ -11,6 +11,8 @@ ru:
       year_other: лет
     alerts:
       title: Неполная информация о клиенте
+      no_registration: Не указан адрес прописки
+      no_residence: Не указан адрес проживания
     legal_information:
       title: Юридическая информация
       not_specified: Не указан
