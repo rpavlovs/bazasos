@@ -3,6 +3,8 @@ base: &base
   encoding: unicode
   host: localhost
   port: 5432
+  username: postgres
+  password: postgres
 
 development:
   <<: *base
@@ -14,12 +16,8 @@ test:
 
 production:
   <<: *base
-  username: postgres
-  password: postgres
   database: bazasos_staging
 
 staging:
   <<: *base
-  username: postgres
-  password: postgres
   database: bazasos_staging
