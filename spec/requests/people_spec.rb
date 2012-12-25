@@ -45,9 +45,17 @@ feature 'People' do
   it 'should show warnings' do
     person = FactoryGirl.create(:person)
     visit person_path(person)
-    within '.alert' do
-      page.should have_content I18n.t('people.alerts.no_registration')
-      page.should have_content I18n.t('people.alerts.no_residence')
-    end
+    page.should have_content I18n.t('people.alerts.no_registration')
+    page.should have_content I18n.t('people.alerts.no_residence')
+
+    FactoryGirl.create(:location, :residence, person: person)
+    visit person_path(person)
+    page.should have_content I18n.t('people.alerts.no_registration')
+    page.should_not have_content I18n.t('people.alerts.no_residence')
+
+    FactoryGirl.create(:location, :registration, person: person)
+    visit person_path(person)
+    page.should_not have_content I18n.t('people.alerts.no_registration')
+    page.should_not have_content I18n.t('people.alerts.no_residence')
   end
 end
