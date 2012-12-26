@@ -27,7 +27,7 @@ feature 'People' do
       select '1 (0)', from: 'person[blood_type]'
       choose 'person_rh_factor_true'
       fill_in 'person[additional_details]', with: 'additional details'
-      click_button "Create #{Person.model_name.human}"
+      click_button I18n.t('actions.save')
     }.to change{ Person.count }.by(1)
   end
 
@@ -97,7 +97,7 @@ feature 'People' do
     fill_in 'person[family_name]', with: 'Kant'
     fill_in 'person[tax_num]', with: '7418529630'
     choose 'person_rh_factor_false'
-    click_button "Update #{Person.model_name.human}"
+    click_button I18n.t('actions.save')
 
     person.reload
     person.family_name.should == 'Kant'
