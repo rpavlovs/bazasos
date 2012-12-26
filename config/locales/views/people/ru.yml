@@ -5,7 +5,7 @@ ru:
       add: Добавить Клиента
       phones: Телефоны
       phone_number: Номер телефона
-    show:
+    age:
       year_1: год
       year_2-4: года
       year_other: лет
@@ -16,3 +16,13 @@ ru:
     legal_information:
       title: Юридическая информация
       not_specified: Не указан
+    edit:
+      model_name_for_title: клиента
+    gender:
+      male: Мужской
+      female: Женский
+    blood_type:
+      '1': '1 (0)'
+      '2': '2 (A)'
+      '3': '3 (B)'
+      '4': '4 (AB)'

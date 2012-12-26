@@ -2,3 +2,5 @@ ru:
   emergency_contacts:
     grid:
       add: Добавить экстренный контакт
+    edit:
+      model_name_for_title: экстренного контакта

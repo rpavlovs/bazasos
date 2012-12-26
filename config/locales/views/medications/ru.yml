@@ -2,3 +2,5 @@ ru:
   medications:
     grid:
       add: Добавить медикамент
+    edit:
+      model_name_for_title: медикамента

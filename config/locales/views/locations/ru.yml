@@ -2,3 +2,5 @@ ru:
   locations:
     grid:
       add: Добавить локацию
+    edit:
+      model_name_for_title: локации

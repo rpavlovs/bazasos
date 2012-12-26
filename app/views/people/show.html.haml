@@ -5,12 +5,7 @@
     = @person.full_name
     %small
       = @person.age
-      - if @person.age % 10 == 1
-        = t('.year_1')
-      - elsif (2..4).include? @person.age % 10
-        = t('.year_2-4')
-      - else
-        = t('.year_other')
+      = text_for_age(@person.age)
 
   .btn-group
     = link_to people_path, class: 'btn' do

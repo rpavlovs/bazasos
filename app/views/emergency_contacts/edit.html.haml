@@ -1,6 +1,6 @@
 %h1
   = @emergency_contact.persisted? ? t('actions.editing') : t('actions.adding')
-  экстренного контакта
+  = t('.model_name_for_title')
 
 = simple_form_for [@person, @emergency_contact], html: {class: 'form-horizontal'} do |f|
   = f.input :name
@@ -8,5 +8,5 @@
   = f.input :phones
   = f.input :priority, collection: [['Низкий', 1], ['Средний', 2], ['Высокий', 3]]
   .btn-group
-    = f.button :submit, class: 'btn-primary'
+    = f.button :submit, class: 'btn-primary', value: t('actions.save')
     = link_to t('actions.cancel'), @person, class: 'btn'

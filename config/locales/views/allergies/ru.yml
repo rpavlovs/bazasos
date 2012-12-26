@@ -2,3 +2,5 @@ ru:
   allergies:
     grid:
       add: Добавить аллергию
+    edit:
+      model_name_for_title: аллергии
