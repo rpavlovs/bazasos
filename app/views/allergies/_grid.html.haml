@@ -1,4 +1,4 @@
-%h3 Аллергии
+%h3= Allergy.model_name.human(count: 2)
 
 %table.table.table-condensed.table-bordered
   %thead
@@ -20,4 +20,4 @@
 
 = link_to new_person_allergy_path(person), class: 'btn btn-mini' do
   %i.icon-plus-sign
-  Добавить аллергию
+  = t('.add')

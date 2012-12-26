@@ -1,7 +1,9 @@
 ru:
   activerecord:
     models:
-      emergency_contact: Экстернный контакт
+      emergency_contact:
+        one: Экстернный контакт
+        other: Экстернные контакты
     attributes:
       emergency_contact:
         name: ФИО

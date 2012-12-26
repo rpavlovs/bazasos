@@ -1,7 +1,9 @@
 ru:
   activerecord:
     models:
-      allergy: Аллергия
+      allergy:
+        one: Аллергия
+        other: Аллергии
     attributes:
       allergy:
         allergen: Аллерген

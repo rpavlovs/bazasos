@@ -1,7 +1,9 @@
 ru:
   activerecord:
     models:
-      medication: Медикамент
+      medication:
+        one: Медикамент
+        other: Медикаменты
     attributes:
       medication:
         name: Название

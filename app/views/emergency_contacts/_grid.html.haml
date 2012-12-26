@@ -1,4 +1,4 @@
-%h3 Экстренные контакты
+%h3= EmergencyContact.model_name.human(count: 2)
 
 %table.table.table-condensed.table-bordered
   %thead
@@ -23,4 +23,4 @@
 
 = link_to new_person_emergency_contact_path(person), class: 'btn btn-mini' do
   %i.icon-plus-sign
-  Добавить экстренный контакт
+  = t('.add')
