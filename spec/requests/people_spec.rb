@@ -1,8 +1,9 @@
 require 'spec_helper'
 
 feature 'People' do
+  let!(:person) { FactoryGirl.create(:person, cell_num: '1234567980') }
+
   it 'should list people' do
-    person = FactoryGirl.create(:person)
     visit people_path
     within 'table#people tbody' do
       page.should have_content person.family_name
@@ -31,7 +32,6 @@ feature 'People' do
   end
 
   context 'search' do
-    let!(:person) { FactoryGirl.create(:person, cell_num: '1234567980') }
     let!(:another_person) { FactoryGirl.create(:person, cell_num: '0987654321') }
 
     it 'should search by family_name' do
@@ -76,7 +76,6 @@ feature 'People' do
   end
 
   it 'should show warnings' do
-    person = FactoryGirl.create(:person)
     visit person_path(person)
     page.should have_content I18n.t('people.alerts.no_registration')
     page.should have_content I18n.t('people.alerts.no_residence')
@@ -90,5 +89,19 @@ feature 'People' do
     visit person_path(person)
     page.should_not have_content I18n.t('people.alerts.no_registration')
     page.should_not have_content I18n.t('people.alerts.no_residence')
+  end
+
+  it 'should edit person' do
+    visit person_path(person)
+    click_link I18n.t('actions.edit')
+    fill_in 'person[family_name]', with: 'Kant'
+    fill_in 'person[tax_num]', with: '7418529630'
+    choose 'person_rh_factor_false'
+    click_button "Update #{Person.model_name.human}"
+
+    person.reload
+    person.family_name.should == 'Kant'
+    person.tax_num.should == '7418529630'
+    person.rh_factor.should == false
   end
 end
