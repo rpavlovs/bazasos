@@ -7,10 +7,9 @@
     = csrf_meta_tags
     = render 'layouts/shim'
   %body
-    #wrap
+    #wrap.container
       = render 'layouts/header'
-      .container
-        = yield
+      = yield
       #push
     = render 'layouts/footer'
     / = debug(params) if Rails.env.development?

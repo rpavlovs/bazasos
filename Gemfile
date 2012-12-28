@@ -7,6 +7,7 @@ gem 'bcrypt-ruby', '3.0.1'
 gem 'pg'
 gem 'haml-rails'
 gem 'simple_form'
+gem 'rails_bootstrap_navbar'
 
 group :development, :test do
   gem 'rspec-rails', '2.11.0'
