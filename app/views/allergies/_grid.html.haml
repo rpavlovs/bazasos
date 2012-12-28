@@ -1,5 +1,9 @@
-%h3= Allergy.model_name.human(count: 2)
-
+%h3
+  = Allergy.model_name.human(count: 2)
+  .pull-right
+    = link_to new_person_allergy_path(person), class: 'btn btn-mini' do
+      %i.icon-plus-sign
+      = t('.add')
 %table.table.table-condensed.table-bordered
   %thead
     %th= Allergy.human_attribute_name(:allergen)
@@ -13,11 +17,11 @@
         %td= allergy.allergen_type
         %td= allergy.reaction
         %td.btn-group
-          = link_to t('actions.edit'), edit_person_allergy_path(person, allergy), class: 'btn btn-mini'
-          = link_to t('actions.remove'), [person, allergy], method: :delete,
-            confirm: t('remove_confirm'),
-            class: 'btn btn-danger btn-mini'
+          .pull-right
+            = link_to edit_person_allergy_path(person, allergy), class: 'btn btn-link btn-mini' do
+              %i.icon-edit
+            = link_to [person, allergy], method: :delete, confirm: t('remove_confirm'),
+              class: 'btn btn-link btn-mini' do
+              %i.icon-remove
 
-= link_to new_person_allergy_path(person), class: 'btn btn-mini' do
-  %i.icon-plus-sign
-  = t('.add')
+

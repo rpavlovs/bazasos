@@ -1,4 +1,9 @@
-%h3= EmergencyContact.model_name.human(count: 2)
+%h3
+  = EmergencyContact.model_name.human(count: 2)
+  .pull-right
+    = link_to new_person_emergency_contact_path(person), class: 'btn btn-mini' do
+      %i.icon-plus-sign
+      = t('.add')
 
 %table.table.table-condensed.table-bordered
   %thead
@@ -15,12 +20,12 @@
         %td= emergency_contact.phones
         %td= emergency_contact.priority
         %td.btn-group
-          = link_to t('actions.edit'), edit_person_emergency_contact_path(person, emergency_contact),
-            class: 'btn btn-mini'
-          = link_to t('actions.remove'), [person, emergency_contact], method: :delete,
-            confirm: t('remove_confirm'),
-            class: 'btn btn-danger btn-mini'
+          .pull-right
+            = link_to edit_person_emergency_contact_path(person, emergency_contact),
+              class: 'btn btn-link btn-mini' do
+              %i.icon-edit
+            = link_to [person, emergency_contact], method: :delete,
+              confirm: t('remove_confirm'), class: 'btn btn-link btn-mini' do
+              %i.icon-remove
 
-= link_to new_person_emergency_contact_path(person), class: 'btn btn-mini' do
-  %i.icon-plus-sign
-  = t('.add')
+

@@ -15,6 +15,11 @@
   = f.input :rh_factor, collection: options_for_rh_factor, as: :radio_buttons
   = f.input :additional_details, input_html: { rows: 2 }
   = f.input :clinic_id
-  .btn-group
-    = f.button :submit, class: 'btn-primary', value: t('actions.save')
-    = link_to t('actions.cancel'), @person.persisted? ? person_path(@person) : people_path, class: 'btn'
+  .btn-toolbar
+    .btn-group
+      = f.button :submit, class: 'btn-primary', value: t('actions.save')
+      = link_to t('actions.cancel'), @person.persisted? ? person_path(@person) : people_path, class: 'btn'
+    - if @person.persisted?
+      = link_to @person, method: :delete, class: 'btn btn-danger', confirm: t('remove_confirm') do
+        %i.icon-remove.icon-white
+        = t('actions.remove')

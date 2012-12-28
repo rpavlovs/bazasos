@@ -1,22 +1,14 @@
 %p#notice= notice
-
-.page-header
-  %h1
-    = @person.full_name
-    %small
-      = @person.age
-      = text_for_age(@person.age)
-
-  .btn-group
-    = link_to people_path, class: 'btn' do
-      %i.icon-list
-      = t('people.index.title')
+  
+%h1
+  = @person.full_name
+  %small
+    = @person.age
+    = text_for_age(@person.age)
+  .pull-right
     = link_to edit_person_path(@person), class: 'btn' do
       %i.icon-edit
-      = t('actions.edit')
-    = link_to @person, method: :delete, class: 'btn btn-danger', confirm: t('remove_confirm') do
-      %i.icon-remove.icon-white
-      = t('actions.remove')
+      = t('actions.edit')    
 
 = render partial: 'alerts', locals: { person: @person }
 = render partial: 'legal_information', locals: { person: @person }
