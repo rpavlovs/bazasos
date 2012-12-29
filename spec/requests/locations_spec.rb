@@ -19,6 +19,23 @@ feature 'Locations' do
     check_data
   end
 
+  it 'should show residence first' do
+    location = FactoryGirl.create(:location, person: person)
+    residence = FactoryGirl.create(:location, :residence, person: person, description: 'residence')
+    visit person_path(person)
+    within 'table#locations tbody tr:nth-child(1)' do
+      page.should have_content 'residence'
+    end
+  end
+
+  it 'should highlicht registration' do
+    registration = FactoryGirl.create(:location, :registration, person: person, description: 'registration')
+    visit person_path(person)
+    within 'table#locations tbody tr.info' do
+      page.should have_content 'registration'
+    end
+  end
+
   it 'should show comment somewhere'
 
   def fill_form
