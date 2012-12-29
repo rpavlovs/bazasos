@@ -7,15 +7,15 @@
 
 .row
   .span8
-    %table#people.table.table-condensed.table-hover
+    %table.table.table-condensed.table-hover
       %thead
         %th= Person.human_attribute_name :family_name
         %th= Person.human_attribute_name :given_name
         %th= Person.human_attribute_name :middle_name
         %th= t '.phones'
-      %tbody
+      %tbody#people
         - @people.each do |person|
-          = content_tag_for :tr, person, data: {url: person_path(person)} do
+          %tr{ data: { url: person_path(person) } }
             %td= person.family_name
             %td= person.given_name
             %td= person.middle_name

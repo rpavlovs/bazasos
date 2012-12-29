@@ -1,6 +1,10 @@
 class LocationsController < ApplicationController
   before_filter :find_person
-  before_filter :find_location, only: [:edit, :update]
+  before_filter :find_location, only: [:edit, :update, :show]
+
+  def show
+    render layout: 'modal'
+  end
 
   def create
     @location = Location.new(params[:location].merge(person: @person))

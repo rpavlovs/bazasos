@@ -5,23 +5,9 @@
       %i.icon-plus-sign
       = t('.add')
 
-%table.table.table-condensed.table-bordered#locations
-  %thead
-    %th= Location.human_attribute_name(:description)
-    %th= Location.human_attribute_name(:address)
-    %th= Location.human_attribute_name(:phone_number)
-    %th
-  %tbody
+%table.table.table-condensed.table-hover
+  %tbody#locations
     - locations.each do |location|
-      %tr{class: location.is_registration ? 'info' : nil}
+      %tr{ class: location.is_registration? ? 'info' : nil, data: { url: person_location_path(person, location) } }
         %td= location.description
         %td= format_address location
-        %td= location.phone_number
-        %td.btn-group
-          .pull-right
-            = link_to edit_person_location_path(person, location), class: 'btn btn-link btn-mini', title: t('actions.edit') do
-              %i.icon-edit
-            = link_to [person, location], method: :delete, confirm: t('remove_confirm'), title: t('actions.remove'),
-              class: 'btn btn-link btn-mini' do
-              %i.icon-remove
-

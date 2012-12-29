@@ -1,0 +1,8 @@
+.modal-header
+  = link_to '#', class: 'close', data: { dismiss: 'modal' } do
+    &times;
+  %h3= yield :header
+.modal-body
+  = yield
+.modal-footer
+  = yield :footer

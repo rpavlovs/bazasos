@@ -1,3 +1,3 @@
 $ ->
-  $('table').on 'click', 'tr.person', ->
+  $('#people').on 'click', 'tr', ->
     window.location = $(@).data 'url'

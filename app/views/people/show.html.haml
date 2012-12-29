@@ -1,5 +1,5 @@
 %p#notice= notice
-  
+
 %h1
   = @person.full_name
   %small
@@ -8,7 +8,7 @@
   .pull-right
     = link_to edit_person_path(@person), class: 'btn' do
       %i.icon-edit
-      = t('actions.edit')    
+      = t('actions.edit')
 
 = render partial: 'alerts', locals: { person: @person }
 = render partial: 'legal_information', locals: { person: @person }
@@ -17,3 +17,5 @@
 = render partial: 'medications/grid', locals: { person: @person, medications: @person.medications }
 = render partial: 'allergies/grid', locals: { person: @person, allergies: @person.allergies }
 = render partial: 'emergency_contacts/grid', locals: { person: @person, emergency_contacts: @person.emergency_contacts }
+
+#modal.modal.hide.fade

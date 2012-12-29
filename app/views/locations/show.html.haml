@@ -1,0 +1,20 @@
+- content_for :header do
+  = @location.description
+
+%dl
+  %dt= Location.human_attribute_name(:address)
+  %dd= format_address @location
+  - if @location.phone_number.present?
+    %dt= Location.human_attribute_name(:phone_number)
+    %dd= @location.phone_number
+  - if @location.comment.present?
+    %dt= Location.human_attribute_name(:comment)
+    %dd= @location.comment
+
+- content_for :footer do
+  = link_to edit_person_location_path, class: 'btn' do
+    %i.icon-edit
+    = t('actions.edit')
+  = link_to [@person, @location], method: :delete, class: 'btn btn-danger', confirm: t('remove_confirm') do
+    %i.icon-remove.icon-white
+    = t('actions.remove')

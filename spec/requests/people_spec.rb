@@ -5,7 +5,7 @@ feature 'People' do
 
   it 'should list people' do
     visit people_path
-    within 'table#people tbody' do
+    within '#people' do
       page.should have_content person.family_name
       page.should have_content person.given_name
       page.should have_content person.middle_name
@@ -38,7 +38,7 @@ feature 'People' do
       visit people_path
       fill_in 'search[family_name]', with: person.family_name
       click_button I18n.t('actions.search')
-      within 'table#people tbody' do
+      within '#people' do
         page.should have_content person.family_name
         page.should_not have_content another_person.family_name
       end
@@ -48,7 +48,7 @@ feature 'People' do
       visit people_path
       fill_in 'search[phone_number]', with: person.cell_num
       click_button I18n.t('actions.search')
-      within 'table#people tbody' do
+      within '#people' do
         page.should have_content person.family_name
         page.should_not have_content another_person.family_name
       end
@@ -60,7 +60,7 @@ feature 'People' do
       visit people_path
       fill_in 'search[phone_number]', with: location.phone_number
       click_button I18n.t('actions.search')
-      within 'table#people tbody' do
+      within '#people' do
         page.should have_content person.family_name
         page.should_not have_content another_person.family_name
       end
@@ -68,7 +68,7 @@ feature 'People' do
       another_location = FactoryGirl.create(:location, person: another_person, phone_number: location.phone_number)
       fill_in 'search[phone_number]', with: location.phone_number
       click_button I18n.t('actions.search')
-      within 'table#people tbody' do
+      within '#people' do
         page.should have_content person.family_name
         page.should have_content another_person.family_name
       end
