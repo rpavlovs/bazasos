@@ -41,7 +41,7 @@ feature 'Locations' do
   def fill_form
     fill_in 'location[description]', with: 'home'
     fill_in 'location[postal_code]', with: '79137'
-    fill_in 'location[region]', with: 'some region'
+    select I18n.t('locations.edit.options_for_region').first, from: 'location[region]'
     fill_in 'location[city]', with: 'some city'
     fill_in 'location[street]', with: 'some street'
     fill_in 'location[street_number]', with: '11/2'
@@ -57,7 +57,7 @@ feature 'Locations' do
     within 'table#locations tbody' do
       page.should have_content 'home'
       page.should have_content '79137'
-      page.should have_content 'some region'
+      page.should have_content I18n.t('locations.edit.options_for_region').first
       page.should have_content 'some city'
       page.should have_content '11/2'
       page.should have_content '2'

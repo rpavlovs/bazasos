@@ -9,7 +9,7 @@
   - if @location.is_registration or @person.registration_location.nil?
     = f.input :is_registration
   = f.input :postal_code
-  = f.input :region
+  = f.input :region, collection: t('.options_for_region')
   = f.input :city
   = f.input :street
   = f.input :street_number
