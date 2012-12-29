@@ -4,7 +4,7 @@
     = link_to new_person_allergy_path(person), class: 'btn btn-mini' do
       %i.icon-plus-sign
       = t('.add')
-%table.table.table-condensed.table-bordered
+%table.table.table-condensed.table-bordered#allergies
   %thead
     %th= Allergy.human_attribute_name(:allergen)
     %th= Allergy.human_attribute_name(:allergen_type)
@@ -18,9 +18,9 @@
         %td= allergy.reaction
         %td.btn-group
           .pull-right
-            = link_to edit_person_allergy_path(person, allergy), class: 'btn btn-link btn-mini' do
+            = link_to edit_person_allergy_path(person, allergy), class: 'btn btn-link btn-mini', title: t('actions.edit') do
               %i.icon-edit
-            = link_to [person, allergy], method: :delete, confirm: t('remove_confirm'),
+            = link_to [person, allergy], method: :delete, confirm: t('remove_confirm'), title: t('actions.remove'),
               class: 'btn btn-link btn-mini' do
               %i.icon-remove
 

@@ -17,6 +17,7 @@ ru:
         street: Улица
         street_number: Дом
         building_number: Корпус
+        appartment: Квартира
         floor: Этаж
         entrance: Подъезд
         comment: Комментарий

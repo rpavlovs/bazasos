@@ -5,7 +5,7 @@
       %i.icon-plus-sign
       = t('.add')
 
-%table.table.table-condensed.table-bordered
+%table.table.table-condensed.table-bordered#emergency_contacts
   %thead
     %th= EmergencyContact.human_attribute_name(:name)
     %th= EmergencyContact.human_attribute_name(:relationship_type)
@@ -21,10 +21,10 @@
         %td= emergency_contact.priority
         %td.btn-group
           .pull-right
-            = link_to edit_person_emergency_contact_path(person, emergency_contact),
+            = link_to edit_person_emergency_contact_path(person, emergency_contact), title: t('actions.edit'),
               class: 'btn btn-link btn-mini' do
               %i.icon-edit
-            = link_to [person, emergency_contact], method: :delete,
+            = link_to [person, emergency_contact], method: :delete, title: t('actions.remove'),
               confirm: t('remove_confirm'), class: 'btn btn-link btn-mini' do
               %i.icon-remove
 
