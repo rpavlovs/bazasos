@@ -12,8 +12,8 @@ feature 'Locations' do
   end
 
   it 'should edit location' do
-    location = FactoryGirl.create(:location)
-    visit edit_person_location_path(location.person, location)
+    location = FactoryGirl.create(:location, person: person)
+    visit edit_person_location_path(person, location)
     fill_form
     click_button I18n.t('actions.save')
     check_data
