@@ -6,7 +6,7 @@
   = f.input :name
   = f.input :relationship_type
   = f.input :phones
-  = f.input :priority, collection: [['Низкий', 1], ['Средний', 2], ['Высокий', 3]]
+  = f.input :priority, collection: options_for_priority
   .btn-group
     = f.button :submit, class: 'btn-primary', value: t('actions.save')
     = link_to t('actions.cancel'), @person, class: 'btn'

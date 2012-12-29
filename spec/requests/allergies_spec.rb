@@ -3,7 +3,7 @@ require 'spec_helper'
 feature 'Allergies' do
   let!(:person) { FactoryGirl.create(:person) }
 
-  it 'should create and show allergie' do
+  it 'should create and show allergy' do
     visit person_path(person)
     click_link I18n.t('allergies.grid.add')
     fill_form

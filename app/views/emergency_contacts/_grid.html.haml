@@ -18,7 +18,7 @@
         %td= emergency_contact.name
         %td= emergency_contact.relationship_type
         %td= emergency_contact.phones
-        %td= emergency_contact.priority
+        %td= priority_to_text(emergency_contact.priority)
         %td.btn-group
           .pull-right
             = link_to edit_person_emergency_contact_path(person, emergency_contact), title: t('actions.edit'),
