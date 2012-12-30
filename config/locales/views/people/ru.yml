@@ -9,13 +9,6 @@ ru:
       year_1: год
       year_2-4: года
       year_other: лет
-    alerts:
-      title: Неполная информация о клиенте
-      no_registration: Не указан адрес прописки
-      no_residence: Не указан адрес проживания
-    legal_information:
-      title: Юридическая информация
-      not_specified: Не указан
     edit:
       model_name_for_title: клиента
     gender:

@@ -1,0 +1,4 @@
+= nav_bar fixed: 'top', brand: 'База SOS', responsive: true do
+  = form_tag people_path, method: 'get', class: 'navbar-search' do
+    = text_field_tag :query, nil, class: 'search-query', placeholder: t('search')
+

@@ -10,8 +10,11 @@
       %i.icon-edit
       = t('actions.edit')
 
-= render partial: 'alerts', locals: { person: @person }
-= render partial: 'legal_information', locals: { person: @person }
+%dl
+  %dt= Person.human_attribute_name(:birth_date)
+  %dd= l @person.birth_date
+  %dt= Person.human_attribute_name(:tax_num)
+  %dd= @person.tax_num
 
 = render partial: 'locations/grid', locals: { person: @person, locations: @person.locations }
 = render partial: 'medications/grid', locals: { person: @person, medications: @person.medications }

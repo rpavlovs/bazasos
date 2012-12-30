@@ -36,8 +36,6 @@ feature 'Locations' do
     end
   end
 
-  it 'should show comment somewhere'
-
   def fill_form
     fill_in 'location[description]', with: 'home'
     fill_in 'location[postal_code]', with: '79137'

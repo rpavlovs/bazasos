@@ -3,11 +3,11 @@ class PeopleController < ApplicationController
   before_filter :create_person, only: :new
 
   def index
-    @people = Person.scoped
-    if params[:search]
-      @search = OpenStruct.new(params[:search])
-      @people = Person.search(@search)
-    end
+    @people = if params[:query]
+                Person.search(params[:query])
+              else
+                Person.all
+              end
   end
 
   def show

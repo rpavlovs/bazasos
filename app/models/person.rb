@@ -57,26 +57,27 @@ class Person < ActiveRecord::Base
     result
   end
 
-  def self.search(search_object)
-    result = scoped
-    result = result.where('family_name ilike ?', "#{search_object.family_name}%")
-    result = result.where('given_name ilike ?', "#{search_object.given_name}%")
-    result = result.where('middle_name ilike ?', "#{search_object.middle_name}%")
-    if search_object.phone_number.present?
-      locations = Location.where(phone_number: search_object.phone_number)
-      result = result.where(arel_table[:cell_num].eq(search_object.phone_number).or(arel_table[:id].in(locations.pluck(:person_id))))
+  def self.search(query)
+    if /^\d{10}$/ =~ query
+      location_matches = Location.where(phone_number: query).pluck(:person_id).uniq
+      condition = 'cell_num = ?'
+      if location_matches.any?
+        condition = "#{condition} or id in (#{location_matches.join(',')})"
+      end
+      where(condition, query)
+    else
+      words = query.split
+      words.map! { |word| "#{word}%" }
+      case words.count
+      when 1
+        where('family_name ilike ? or given_name ilike ? or middle_name ilike ?', words.first, words.first, words.first)
+      when 2
+        where('(family_name ilike ? and given_name ilike ?) or (given_name ilike ? and middle_name ilike ?)', words.first, words.second, words.first, words.second)
+      when 3
+        where('family_name ilike ? and given_name ilike ? and middle_name ilike ?', words.first, words.second, words.third)
+      else
+        []
+      end
     end
-    result
-  end
-
-  def alerts
-    result = []
-    if registration_location.nil?
-      result << :no_registration
-    end
-    if residence_location.nil?
-      result << :no_residence
-    end
-    result
   end
 end
