@@ -1,32 +1,15 @@
+%h1= t '.title'
 
-%h1
-  = t '.title'
-  = link_to new_person_path, class: 'btn btn-primary' do
-    %i.icon-plus-sign.icon-white
-    = t '.add'
-
-.row
-  .span8
-    %table.table.table-condensed.table-hover
-      %thead
-        %th= Person.human_attribute_name :family_name
-        %th= Person.human_attribute_name :given_name
-        %th= Person.human_attribute_name :middle_name
-        %th= t '.phones'
-      %tbody#people
-        - @people.each do |person|
-          %tr{ data: { url: person_path(person) } }
-            %td= person.family_name
-            %td= person.given_name
-            %td= person.middle_name
-            %td= person.phone_numbers.join(', ')
-
-  .span3.well.pull-right
-    = simple_form_for :search, html: {class: 'form-vertical'} do |f|
-      = f.input :family_name, label: Person.human_attribute_name(:family_name)
-      = f.input :given_name, label: Person.human_attribute_name(:given_name)
-      = f.input :middle_name, label: Person.human_attribute_name(:middle_name)
-      = f.input :phone_number, label: t('.phone_number')
-      .btn-group
-        = f.button :submit, t('actions.search')
-        = link_to t('actions.reset'), people_path, class: 'btn'
+%table.table.table-condensed.table-hover
+  %thead
+    %th= Person.human_attribute_name :family_name
+    %th= Person.human_attribute_name :given_name
+    %th= Person.human_attribute_name :middle_name
+    %th= t '.phones'
+  %tbody#people
+    - @people.each do |person|
+      %tr{ data: { url: person_path(person) } }
+        %td= person.family_name
+        %td= person.given_name
+        %td= person.middle_name
+        %td= person.phone_numbers.join(', ')
