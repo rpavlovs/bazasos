@@ -3,9 +3,7 @@
   = t('.model_name_for_title')
 
 = simple_form_for [@person, @medication], html: {class: 'form-horizontal'} do |f|
-  = f.input :name
-  = f.input :med_type
-  = f.input :dose
+  = f.input :title
   .btn-group
     = f.button :submit, class: 'btn-primary', value: t('actions.save')
     = link_to t('actions.cancel'), @person, class: 'btn'

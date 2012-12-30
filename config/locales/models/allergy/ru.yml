@@ -6,6 +6,4 @@ ru:
         other: Аллергии
     attributes:
       allergy:
-        allergen: Аллерген
-        allergen_type: Тип
-        reaction: Реакция
+        title: Аллерген

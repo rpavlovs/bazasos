@@ -17,8 +17,13 @@
   %dd= @person.tax_num
 
 = render partial: 'locations/grid', locals: { person: @person, locations: @person.locations }
-= render partial: 'medications/grid', locals: { person: @person, medications: @person.medications }
-= render partial: 'allergies/grid', locals: { person: @person, allergies: @person.allergies }
+
+.row
+  .span6
+    = render partial: 'medications/grid', locals: { person: @person, medications: @person.medications }
+  .span6
+    = render partial: 'allergies/grid', locals: { person: @person, allergies: @person.allergies }
+
 = render partial: 'emergency_contacts/grid', locals: { person: @person, emergency_contacts: @person.emergency_contacts }
 
 #modal.modal.hide.fade

@@ -15,11 +15,9 @@ ActiveRecord::Schema.define(:version => 20121223095059) do
 
   create_table "allergies", :force => true do |t|
     t.integer  "person_id"
-    t.string   "allergen"
-    t.string   "allergen_type"
-    t.string   "reaction"
-    t.datetime "created_at",    :null => false
-    t.datetime "updated_at",    :null => false
+    t.string   "title"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   create_table "emergency_contacts", :force => true do |t|
@@ -54,9 +52,7 @@ ActiveRecord::Schema.define(:version => 20121223095059) do
 
   create_table "medications", :force => true do |t|
     t.integer  "person_id"
-    t.string   "name"
-    t.string   "med_type"
-    t.string   "dose"
+    t.string   "title"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end

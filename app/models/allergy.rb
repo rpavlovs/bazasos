@@ -12,7 +12,7 @@
 #
 
 class Allergy < ActiveRecord::Base
-  attr_accessible :person_id, :person, :allergen, :allergen_type, :reaction
+  attr_accessible :person_id, :person, :title
   belongs_to :person
-  validates_presence_of :person_id, :allergen
+  validates_presence_of :person_id, :title
 end

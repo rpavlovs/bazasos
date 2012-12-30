@@ -5,22 +5,8 @@
       %i.icon-plus-sign
       = t('.add')
 
-%table.table.table-condensed.table-bordered#medications
-  %thead
-    %th= Medication.human_attribute_name(:name)
-    %th= Medication.human_attribute_name(:med_type)
-    %th= Medication.human_attribute_name(:dose)
-    %th
-  %tbody
+%table.table.table-condensed
+  %tbody#medications
     - medications.each do |medication|
       %tr
-        %td= medication.name
-        %td= medication.med_type
-        %td= medication.dose
-        %td.btn-group
-          .pull-right
-            = link_to edit_person_medication_path(person, medication), class: 'btn btn-link btn-mini', title: t('actions.edit') do
-              %i.icon-edit
-            = link_to [person, medication], method: :delete, confirm: t('remove_confirm'), title: t('actions.remove'),
-              class: 'btn btn-link btn-mini' do
-              %i.icon-remove
+        %td= medication.title

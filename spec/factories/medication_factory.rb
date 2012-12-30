@@ -14,8 +14,6 @@
 FactoryGirl.define do
   factory :medication do
     person { FactoryGirl.create(:person) }
-    name 'Aspirin'
-    med_type 'something'
-    dose '3 mg'
+    sequence (:title) { |n| "medication_#{n}" }
   end
 end

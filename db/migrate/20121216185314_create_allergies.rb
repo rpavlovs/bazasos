@@ -2,9 +2,7 @@ class CreateAllergies < ActiveRecord::Migration
   def change
     create_table :allergies do |t|
       t.belongs_to :person
-      t.string :allergen
-      t.string :allergen_type
-      t.string :reaction
+      t.string :title
       t.timestamps
     end
   end

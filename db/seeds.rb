@@ -29,7 +29,7 @@ Location.create(
 	person_id: 					akhmetova.id,
 	description: 				'прописка #неОтображать#',
 	postal_code: 				'03067',
-	region: 						'Киевская',		 
+	region: 						'Киевская',
 	city: 							'Киев',
 	street:							'Днестровская',
 	street_number:			'19',
@@ -48,7 +48,7 @@ Location.create(
 	person_id: 					akhmetova.id,
 	description: 				'Адрес проживания #неОтображать# #выделять ',
 	postal_code: 				'04053',
-	region: 						'Киевская',		 
+	region: 						'Киевская',
 	city: 							'Киев',
 	street:							'Гоголевская',
 	street_number:			'42а',
@@ -67,7 +67,7 @@ Location.create(
 	person_id: 					akhmetova.id,
 	description: 				'Дача',
 	postal_code: 				'',
-	region: 						'Киевская',		 
+	region: 						'Киевская',
 	city: 							'Киев',
 	street:							'Русановские сады',
 	street_number:			'164',
@@ -82,9 +82,7 @@ Location.create(
 )
 Medication.create(
 	person_id: 					akhmetova.id,
-	name:       				'Инсулин',
-	med_type:   				'Инъекции',
-	dose:       				'Завтрак/обед/ужин 2,0/1,0/1,2 ед.'
+	title:       				'Инсулин',
 )
 
 EmergencyContact.create(

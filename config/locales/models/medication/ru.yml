@@ -6,6 +6,4 @@ ru:
         other: Медикаменты
     attributes:
       medication:
-        name: Название
-        med_type: Тип
-        dose: Дозировка
+        title: Название
