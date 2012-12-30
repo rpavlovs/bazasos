@@ -1,6 +1,6 @@
 class AllergiesController < ApplicationController
   before_filter :find_person
-  before_filter :find_allergy, only: [:edit, :update]
+  before_filter :find_allergy, only: [:edit, :update, :destroy]
 
   def create
     @allergy = Allergy.new(params[:allergy].merge(person: @person))
@@ -28,8 +28,8 @@ class AllergiesController < ApplicationController
   end
 
   def destroy
-    Allergy.find(params[:id]).destroy
-    redirect_to :back
+    @allergy.destroy
+    redirect_to @person
   end
 
   private

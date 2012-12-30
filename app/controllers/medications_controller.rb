@@ -1,6 +1,6 @@
 class MedicationsController < ApplicationController
   before_filter :find_person
-  before_filter :find_medication, only: [:edit, :update]
+  before_filter :find_medication, only: [:edit, :update, :destroy]
 
   def create
     @medication = Medication.new(params[:medication].merge(person: @person))
@@ -28,8 +28,8 @@ class MedicationsController < ApplicationController
   end
 
   def destroy
-    Medication.find(params[:id]).destroy
-    redirect_to :back
+    @medication.destroy
+    redirect_to @person
   end
 
   private

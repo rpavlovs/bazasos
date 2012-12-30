@@ -5,8 +5,12 @@
       %i.icon-plus-sign
       = t('.add')
 
-%table.table.table-condensed
+%table.table.table-condensed.table-hover
   %tbody#medications
     - medications.each do |medication|
       %tr
         %td= medication.title
+        %td
+          = link_to [person, medication], method: :delete, title: t('actions.remove'),
+            class: 'btn btn-link btn-mini pull-right', confirm: t('remove_confirm') do
+            %i.icon-remove
