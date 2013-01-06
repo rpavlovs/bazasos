@@ -5,8 +5,8 @@
 #
 #  id              :integer          not null, primary key
 #  login           :string(255)
-#  last_name       :string(255)
-#  first_name      :string(255)
+#  family_name     :string(255)
+#  given_name      :string(255)
 #  middle_name     :string(255)
 #  password_digest :string(255)
 #  admin           :boolean          default(FALSE)

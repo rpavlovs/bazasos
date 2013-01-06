@@ -4,8 +4,8 @@
 #
 #  id              :integer          not null, primary key
 #  login           :string(255)
-#  last_name       :string(255)
-#  first_name      :string(255)
+#  family_name     :string(255)
+#  given_name      :string(255)
 #  middle_name     :string(255)
 #  password_digest :string(255)
 #  admin           :boolean          default(FALSE)
@@ -14,7 +14,7 @@
 #
 
 class User < ActiveRecord::Base
-  attr_accessible :first_name, :last_name, :login, :middle_name, :password, :password_confirmation
+  attr_accessible :family_name, :given_name, :middle_name, :login, :password, :password_confirmation, :admin
   has_secure_password
 
   before_save { self.login.downcase! }
@@ -22,7 +22,7 @@ class User < ActiveRecord::Base
   validates :login, presence:		true,
   									length:			{ maximum: 50, minimum: 5 },
   									uniqueness: { case_sensitive: false }
-  validates :last_name, presence: true
-  validates :password, presence: true, length: { minimum: 6 }
-  validates :password_confirmation, presence: true
+  validates :family_name, presence: true
+  validates :password, presence: true, confirmation: true, length: { within: 6..40 }, on: :create
+  validates :password, confirmation: true, length: { :within => 6..40 }, on: :update, unless: lambda{ |user| user.password.blank? }
 end

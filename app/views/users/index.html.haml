@@ -1,0 +1,11 @@
+%h1
+  = t '.title'
+  = link_to new_user_path, class: 'btn pull-right' do
+    %i.icon.icon-plus-sign
+    = t('.add')
+
+%table.table.table-condensed.table-hover
+  %tbody#users
+    - @users.each do |user|
+      %tr{ data: { url: edit_user_path(user) }, class: user.admin? ? 'info' : nil }
+        %td= user.login

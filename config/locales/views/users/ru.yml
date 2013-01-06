@@ -1,0 +1,8 @@
+ru:
+  users:
+    index:
+      title: Пользователи
+      admin: Администратор
+      add: Добавить пользователя
+    edit:
+      model_name_for_title: пользователя
