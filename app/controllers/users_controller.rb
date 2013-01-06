@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_filter :find_user, only: [:edit, :update, :delete]
+  before_filter :find_user, only: [:edit, :update, :destroy]
 
   def index
     @users = User.all
@@ -30,9 +30,9 @@ class UsersController < ApplicationController
     end
   end
 
-  def delete
+  def destroy
     @user.destroy
-    redirect_to :back
+    redirect_to action: :index
   end
 
   private

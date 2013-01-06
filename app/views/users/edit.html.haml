@@ -10,6 +10,11 @@
   = f.input :family_name
   = f.input :given_name
   = f.input :middle_name
-  .btn-group
-    = f.submit class: 'btn btn-primary', value: t('actions.save')
-    = link_to t('actions.cancel'), users_path, class: 'btn'
+  .btn-toolbar
+    .btn-group
+      = f.submit class: 'btn btn-primary', value: t('actions.save')
+      = link_to t('actions.cancel'), users_path, class: 'btn'
+    - if @user.persisted?
+      = link_to @user, method: :delete, class: 'btn btn-danger', confirm: t('remove_confirm') do
+        %i.icon-remove.icon-white
+        = t('actions.remove')
