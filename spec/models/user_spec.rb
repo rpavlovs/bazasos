@@ -9,6 +9,7 @@
 #  first_name      :string(255)
 #  middle_name     :string(255)
 #  password_digest :string(255)
+#  admin           :boolean          default(FALSE)
 #  created_at      :datetime         not null
 #  updated_at      :datetime         not null
 #
