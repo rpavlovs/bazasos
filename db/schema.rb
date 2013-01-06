@@ -79,8 +79,9 @@ ActiveRecord::Schema.define(:version => 20121223095059) do
     t.string   "first_name"
     t.string   "middle_name"
     t.string   "password_digest"
-    t.datetime "created_at",      :null => false
-    t.datetime "updated_at",      :null => false
+    t.boolean  "admin",           :default => false
+    t.datetime "created_at",                         :null => false
+    t.datetime "updated_at",                         :null => false
   end
 
   add_index "users", ["login"], :name => "index_users_on_login", :unique => true
