@@ -49,7 +49,7 @@ feature 'Sessions' do
       page.should_not have_content I18n.t('users.index.title')
       page.should_not have_content I18n.t('sessions.log_out')
     end
-    log_in
+    log_in(admin: true)
     within '.header' do
       page.should have_content I18n.t('people.index.add')
       page.should have_content I18n.t('users.index.title')
