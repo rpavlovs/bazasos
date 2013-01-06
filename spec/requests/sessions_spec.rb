@@ -41,4 +41,19 @@ feature 'Sessions' do
     visit log_out_path
     page.should have_content I18n.t('sessions.new.title')
   end
+
+  it 'should not show navigation for logged in users only' do
+    visit new_session_path
+    within '.header' do
+      page.should_not have_content I18n.t('people.index.add')
+      page.should_not have_content I18n.t('users.index.title')
+      page.should_not have_content I18n.t('sessions.log_out')
+    end
+    log_in
+    within '.header' do
+      page.should have_content I18n.t('people.index.add')
+      page.should have_content I18n.t('users.index.title')
+      page.should have_content I18n.t('sessions.log_out')
+    end
+  end
 end

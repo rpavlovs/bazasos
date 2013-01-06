@@ -1,5 +1,6 @@
 ru:
   sessions:
+    log_out: Выйти
     new:
       title: Вход в систему
       login: Войти

@@ -1,9 +1,10 @@
 = nav_bar fixed: 'top', brand: 'База SOS', responsive: true do
-  = menu_group do
-    = form_tag people_path, method: 'get', class: 'navbar-search' do
-      = text_field_tag :query, nil, class: 'search-query', placeholder: t('search')
-  = menu_group do
-    = menu_item t('people.index.add'), new_person_path
-    = menu_item t('users.index.title'), users_path
-  = menu_group pull: :right do
-    = menu_item 'Log out', log_out_path
+  - if current_user
+    = menu_group do
+      = form_tag people_path, method: 'get', class: 'navbar-search' do
+        = text_field_tag :query, nil, class: 'search-query', placeholder: t('search')
+    = menu_group do
+      = menu_item t('people.index.add'), new_person_path
+      = menu_item t('users.index.title'), users_path
+    = menu_group pull: :right do
+      = menu_item t('sessions.log_out'), log_out_path
