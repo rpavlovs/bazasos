@@ -14,3 +14,4 @@ ru:
     formats:
       default: '%d.%m.%Y'
   search: Поиск
+  permission_denied: Доступ к этой странице запрещен

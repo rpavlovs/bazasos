@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
   before_filter :find_user, only: [:edit, :update, :destroy]
+  before_filter :check_permissions
 
   def index
     @users = User.all

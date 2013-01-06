@@ -17,4 +17,8 @@ class ApplicationController < ActionController::Base
   def admin?
     @current_user.try(:admin?)
   end
+
+  def check_permissions
+    render 'shared/forbidden', status: :forbidden unless admin?
+  end
 end
