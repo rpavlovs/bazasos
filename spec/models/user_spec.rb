@@ -21,8 +21,8 @@ describe User do
   before {
   	@user = User.new(
   		login: "rpavlovs",
-			last_name: "Павловский",
-			first_name: "Роман",
+			family_name: "Павловский",
+			given_name: "Роман",
 			middle_name: "Александрович",
 			password: "foobar",
 			password_confirmation: "foobar")
@@ -31,8 +31,8 @@ describe User do
   subject { @user }
 
   it { should respond_to(:login) }
-  it { should respond_to(:last_name) }
-  it { should respond_to(:first_name) }
+  it { should respond_to(:family_name) }
+  it { should respond_to(:given_name) }
   it { should respond_to(:middle_name) }
   it { should respond_to(:password_digest) }
   it { should respond_to(:password) }
@@ -47,7 +47,7 @@ describe User do
   end
 
   describe "when login is not present" do
-    before { @user.last_name = " " }
+    before { @user.family_name = " " }
     it { should_not be_valid }
   end
 
@@ -91,7 +91,10 @@ describe User do
 	end
 
 	describe "when password confirmation is nil" do
-	  before { @user.password_confirmation = nil }
+	  before do
+      @user.password_confirmation = nil
+      @user.password_digest = nil
+    end
 	  it { should_not be_valid }
 	end
 
