@@ -1,0 +1,5 @@
+ru:
+  sessions:
+    new:
+      title: Вход в систему
+      login: Войти

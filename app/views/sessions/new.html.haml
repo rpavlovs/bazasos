@@ -1,0 +1,5 @@
+%h1= t('.title')
+= simple_form_for :credentials, url: sessions_path, method: :post, html: { class: 'form-horizontal' } do |f|
+  = f.input :login, label: User.human_attribute_name(:login)
+  = f.input :password, label: User.human_attribute_name(:password)
+  = f.submit class: 'btn btn-primary', value: t('.login')
