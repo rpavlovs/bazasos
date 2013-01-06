@@ -1,6 +1,5 @@
 require 'rubygems'
 require 'spork'
-#require 'spork/ext/ruby-debug'
 
 Spork.prefork do
   # Loading more in this block will cause your tests to run faster. However,
@@ -44,6 +43,7 @@ RSpec.configure do |config|
   # the seed, which is printed after each run.
   #     --seed 1234
   config.order = "random"
+  config.include LoginHelper, type: :request
 end
 
 

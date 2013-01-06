@@ -2,6 +2,7 @@ require 'spec_helper'
 
 feature 'People' do
   let!(:person) { FactoryGirl.create(:person, cell_num: '1234567980') }
+  before { log_in }
 
   it 'should list people' do
     visit people_path

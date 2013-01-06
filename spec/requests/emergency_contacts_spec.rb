@@ -2,6 +2,7 @@ require 'spec_helper'
 
 feature 'Emergency Contacts' do
   let!(:person) { FactoryGirl.create(:person) }
+  before { log_in }
 
   it 'should create and show emergency contact' do
     visit person_path(person)

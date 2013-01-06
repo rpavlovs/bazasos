@@ -2,6 +2,7 @@ require 'spec_helper'
 
 feature 'Medications' do
   let!(:person) { FactoryGirl.create(:person) }
+  before { log_in }
 
   it 'should create and show medication' do
     visit person_path(person)
