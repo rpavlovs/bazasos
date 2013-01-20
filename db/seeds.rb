@@ -92,3 +92,9 @@ EmergencyContact.create(
 	phones:            	'0931112222',
 	priority:          	'3'
 )
+User.create(
+  login: 'admin',
+  password: 'admin1',
+  password_confirmation: 'admin1',
+  family_name: 'admin'
+)
