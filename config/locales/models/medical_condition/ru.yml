@@ -1,8 +1,10 @@
 ru:
   activerecord:
     models:
-      medical_condition: Заболевание
+      medical_condition:
+        one: Заболевание
+        other: Заболевания
     attributes:
       medical_condition:
         title: Заболевание
-        primary: Главное
+        is_primary: Главное

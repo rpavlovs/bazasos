@@ -19,9 +19,11 @@
 = render partial: 'locations/grid', locals: { person: @person, locations: @person.locations }
 
 .row
-  .span6
+  .span4
+    = render partial: 'medical_conditions/grid', locals: { person: @person, medical_conditions: @person.medical_conditions }
+  .span4
     = render partial: 'medications/grid', locals: { person: @person, medications: @person.medications }
-  .span6
+  .span4
     = render partial: 'allergies/grid', locals: { person: @person, allergies: @person.allergies }
 
 = render partial: 'emergency_contacts/grid', locals: { person: @person, emergency_contacts: @person.emergency_contacts }

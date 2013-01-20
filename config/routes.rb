@@ -8,5 +8,6 @@ Bazasos::Application.routes.draw do
     resources :emergency_contacts
     resources :locations
     resources :medications
+    resources :medical_conditions
   end
 end

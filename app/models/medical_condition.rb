@@ -12,6 +12,12 @@
 
 class MedicalCondition < ActiveRecord::Base
   belongs_to :person
-  attr_accessible :person_id, :primary, :title
+  attr_accessible :person_id, :is_primary, :title, :person
   validates_presence_of :person_id, :title
+
+  default_scope order('is_primary desc')
+
+  def self.primary
+    where(is_primary: true).first
+  end
 end

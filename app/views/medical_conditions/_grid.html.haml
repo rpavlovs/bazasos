@@ -1,0 +1,16 @@
+%h3
+  = MedicalCondition.model_name.human(count: 2)
+  .pull-right
+    = link_to new_person_medical_condition_path(person), class: 'btn btn-mini' do
+      %i.icon-plus-sign
+      = t('.add')
+
+%table.table.table-condensed.table-hover
+  %tbody#medical_conditions
+    - medical_conditions.each do |medical_condition|
+      %tr{ class: medical_condition.is_primary? ? 'error' : nil }
+        %td= medical_condition.title
+        %td
+          = link_to [person, medical_condition], method: :delete, title: t('actions.remove'),
+            class: 'btn btn-link btn-mini pull-right', confirm: t('remove_confirm') do
+            %i.icon-remove

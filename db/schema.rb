@@ -53,7 +53,7 @@ ActiveRecord::Schema.define(:version => 20130120210847) do
   create_table "medical_conditions", :force => true do |t|
     t.integer  "person_id"
     t.string   "title"
-    t.boolean  "primary"
+    t.boolean  "is_primary"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end

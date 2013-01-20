@@ -4,6 +4,6 @@ FactoryGirl.define do
   factory :medical_condition do
     person { FactoryGirl.create(:person) }
     title 'condition'
-    primary false
+    is_primary false
   end
 end

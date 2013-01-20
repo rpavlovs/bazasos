@@ -1,0 +1,6 @@
+ru:
+  medical_conditions:
+    grid:
+      add: Добавить заболевание
+    edit:
+      model_name_for_title: заболевания
