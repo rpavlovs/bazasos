@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121223095059) do
+ActiveRecord::Schema.define(:version => 20130120210847) do
 
   create_table "allergies", :force => true do |t|
     t.integer  "person_id"
@@ -48,6 +48,14 @@ ActiveRecord::Schema.define(:version => 20121223095059) do
     t.boolean  "is_residence"
     t.datetime "created_at",                    :null => false
     t.datetime "updated_at",                    :null => false
+  end
+
+  create_table "medical_conditions", :force => true do |t|
+    t.integer  "person_id"
+    t.string   "title"
+    t.boolean  "primary"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   create_table "medications", :force => true do |t|
